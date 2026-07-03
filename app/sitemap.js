@@ -1,37 +1,38 @@
 import { getBaseUrl } from "./seo";
+import portfolio from "./data/portfolio.json";
 
 export default function sitemap() {
   const baseUrl = getBaseUrl();
-  const now = new Date();
+  const lastModified = new Date(portfolio.personal.contentUpdated);
 
   return [
     {
       url: `${baseUrl}/`,
-      lastModified: now,
+      lastModified,
       changeFrequency: "weekly",
       priority: 1,
     },
     {
       url: `${baseUrl}/about`,
-      lastModified: now,
+      lastModified,
       changeFrequency: "monthly",
       priority: 0.9,
     },
     {
       url: `${baseUrl}/contact`,
-      lastModified: now,
+      lastModified,
       changeFrequency: "monthly",
       priority: 0.9,
     },
     {
       url: `${baseUrl}/work`,
-      lastModified: now,
+      lastModified,
       changeFrequency: "monthly",
       priority: 0.9,
     },
     {
       url: `${baseUrl}/service`,
-      lastModified: now,
+      lastModified,
       changeFrequency: "monthly",
       priority: 0.8,
     },

@@ -1,13 +1,13 @@
 import { Bricolage_Grotesque, Space_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/Navbar";
-import { getBaseUrl, organizationJsonLd, personJsonLd, siteConfig, websiteJsonLd } from "./seo";
+import { getBaseUrl, personJsonLd, siteConfig, websiteJsonLd } from "./seo";
 
 const bricolage = Bricolage_Grotesque({ subsets: ["latin"], variable: "--font-heading", display: "swap" });
 const spaceMono = Space_Mono({ subsets: ["latin"], weight: ["400", "700"], variable: "--font-body", display: "swap" });
 
 export default function RootLayout({ children }) {
-  const schemas = [personJsonLd(), websiteJsonLd(), organizationJsonLd()];
+  const schemas = [personJsonLd(), websiteJsonLd()];
 
   return (
     <html lang="en">
@@ -38,9 +38,9 @@ export const metadata = {
     title: siteConfig.title,
     description: siteConfig.description,
     siteName: siteConfig.title,
-    images: [{ url: "/profile.jpg", width: 1200, height: 630, alt: `${siteConfig.name} - Full-Stack, Python & AI Developer` }]
+    images: [{ url: siteConfig.profileImage, alt: `${siteConfig.name} - Full-Stack, Python & AI Developer` }]
   },
-  twitter: { card: "summary_large_image", title: siteConfig.title, description: siteConfig.description, images: ["/profile.jpg"] },
+  twitter: { card: "summary_large_image", title: siteConfig.title, description: siteConfig.description, images: [siteConfig.profileImage] },
   robots: { index: true, follow: true, googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1, "max-video-preview": -1 } },
   category: "technology"
 };

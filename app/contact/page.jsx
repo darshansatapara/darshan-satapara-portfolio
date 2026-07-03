@@ -4,10 +4,12 @@ import { useState } from "react";
 import Link from "next/link";
 import { ArrowUpRight, Check, Code2, Copy, Github, Linkedin, Mail, MapPin, Phone } from "lucide-react";
 import portfolio from "../data/portfolio.json";
+import { breadcrumbJsonLd } from "../seo";
 
 export default function Contact() {
   const [copied, setCopied] = useState(false);
   const { personal, socials } = portfolio;
+  const breadcrumbSchema = breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Contact", path: "/contact" }]);
 
   const copyEmail = async () => {
     await navigator.clipboard.writeText(personal.email);
@@ -23,6 +25,7 @@ export default function Contact() {
 
   return (
     <main className="min-h-screen bg-[#fffdf5] py-12 px-4 md:px-8 font-mono text-black">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <div className="mb-12 flex flex-col md:flex-row justify-between items-end gap-6">
         <div className="border-l-8 border-black pl-6 md:pl-12 py-2">
           <div className="flex items-center gap-2 mb-3 text-gray-500 font-bold text-sm uppercase tracking-widest"><span className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />{personal.availability}</div>

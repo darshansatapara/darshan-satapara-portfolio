@@ -2,17 +2,18 @@ import { getBaseUrl } from "../seo";
 import portfolio from "../data/portfolio.json";
 
 export const metadata = {
-  title: `About ${portfolio.personal.name}`,
-  description: portfolio.personal.about,
-  keywords: [portfolio.personal.name, `About ${portfolio.personal.name}`, portfolio.personal.role],
+  title: "About Me - AI, Python & Full-Stack Developer",
+  description: "Meet Darshan Satapara, a full-stack, Python and AI developer experienced in React, Node.js, data engineering, OCR, LLM automation and podcasting.",
+  keywords: [portfolio.personal.name, "AI developer India", "Python developer portfolio", "full stack developer portfolio", "LLM engineer", "data engineer"],
   alternates: {
     canonical: `${getBaseUrl()}/about`,
   },
   openGraph: {
-    title: `About ${portfolio.personal.name}`,
-    description: portfolio.personal.about,
+    title: `About ${portfolio.personal.name} - AI, Python & Full-Stack Developer`,
+    description: "Full-stack development, Python, data engineering, OCR, generative AI, podcasting and creator work.",
     url: `${getBaseUrl()}/about`,
     type: "profile",
+    images: [portfolio.personal.secondaryProfileImage],
   },
 };
 

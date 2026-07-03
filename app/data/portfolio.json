@@ -16,7 +16,83 @@
     "summary": "Full-stack engineer building scalable web applications and high-volume data pipelines using React, Node.js, and Python. I create AI-powered automation, OCR systems, and LLM workflows that eliminate manual bottlenecks.",
     "about": "I am a Computer Engineering student and full-stack engineer who enjoys turning complex workflows into reliable products. My work spans React and Next.js interfaces, Node.js and Python backends, high-volume database pipelines, OCR systems, and practical LLM automation. I am also a passionate podcaster and group-discussion host, bringing strong communication and a collaborative mindset to fast-paced teams.",
     "availability": "Available for opportunities",
-    "domain": "https://darshan.techorbitra.com"
+    "domain": "https://darshan.techorbitra.com",
+    "contentUpdated": "2026-07-03"
+  },
+  "seo": {
+    "title": "Darshan Satapara | Full-Stack, Python & AI Developer",
+    "description": "Darshan Satapara is a full-stack, Python and AI developer building React and Next.js apps, Node.js APIs, data pipelines, OCR and LLM automation in India.",
+    "primaryKeywords": [
+      "Darshan Satapara",
+      "Darshan Satapara portfolio",
+      "Full Stack Developer",
+      "AI Developer",
+      "Python Developer",
+      "Data Engineer",
+      "Generative AI Developer",
+      "React Developer",
+      "Next.js Developer",
+      "Node.js Developer",
+      "MERN Stack Developer",
+      "LLM Engineer",
+      "AI Automation Developer",
+      "Machine Learning Engineer",
+      "Prompt Engineer",
+      "OCR Developer",
+      "OpenAI API Developer"
+    ],
+    "longTailKeywords": [
+      "full stack developer portfolio India",
+      "Python AI developer India",
+      "React Next.js developer portfolio",
+      "Node.js backend developer India",
+      "generative AI and LLM automation developer",
+      "OCR document processing developer",
+      "ETL data pipeline developer",
+      "AI automation for business workflows",
+      "OpenAI and Mistral AI integration developer",
+      "freelance full stack developer India"
+    ],
+    "expertiseTopics": [
+      "Artificial Intelligence",
+      "Generative AI",
+      "Large Language Models",
+      "AI Agents and Automation",
+      "Full-Stack Web Development",
+      "Backend API Development",
+      "Data Engineering",
+      "ETL Pipelines",
+      "Optical Character Recognition",
+      "Database Architecture",
+      "React and Next.js",
+      "Node.js and Python"
+    ],
+    "faq": [
+      {
+        "question": "Who is Darshan Satapara?",
+        "answer": "Darshan Satapara is a full-stack, Python and AI developer from India who builds web applications, backend APIs, data pipelines, OCR systems and LLM-powered automation."
+      },
+      {
+        "question": "What does Darshan Satapara build?",
+        "answer": "Darshan builds React and Next.js applications, Node.js and Python backends, ETL pipelines, database systems, OCR document-processing workflows and generative AI automation."
+      },
+      {
+        "question": "Which AI technologies does Darshan work with?",
+        "answer": "Darshan works with OpenAI, Mistral AI, Llama 3.1, Unsloth, QLoRA, prompt engineering, OCR providers and multi-model LLM workflows."
+      },
+      {
+        "question": "Is Darshan available for full-stack or AI development opportunities?",
+        "answer": "Yes. Darshan is available for full-stack development, Python backend, data engineering, generative AI, OCR and business-automation opportunities."
+      },
+      {
+        "question": "Where can I view Darshan Satapara's projects?",
+        "answer": "The Work page presents Darshan's SaaS, eCommerce, AI automation, OCR, ETL, LLM fine-tuning and data-engineering projects with live and source links where available."
+      },
+      {
+        "question": "Does Darshan create content outside software development?",
+        "answer": "Yes. Darshan hosts podcasts and group discussions through Talk With Darshan and shares personal vlogs through The Darsh Vlogz on YouTube and Instagram."
+      }
+    ]
   },
   "resumes": [
     {
@@ -114,7 +190,7 @@
       "id": "01",
       "title": "Instant Dukaan",
       "category": "SAAS | ECOMMERCE",
-      "description": "A scalable SaaS platform empowering local retailers to rapidly deploy customized online eCommerce storefronts. I contributed responsive frontend components, backend APIs, secure authentication, dynamic inventory, and multi-tenant merchant workflows.",
+      "description": "ACollaborated on a scalable SaaS platform empowering local retail shops to rapidly deploy customized online eCommerce storefronts.Engineered responsive frontend components and robust backend APIs, accelerating the merchant onboarding process. Implemented secure user authentication and dynamic inventory management features to support multi-tenant store operations.",
       "tech": [
         "React.js",
         "Node.js",
@@ -131,7 +207,7 @@
       "id": "02",
       "title": "Blutec Ping",
       "category": "WHATSAPP | BACKEND",
-      "description": "Optimized backend workflows for a bulk WhatsApp messaging service, improving enterprise message-delivery speed. Integrated the WhatsApp API for high-volume queues and streamlined API responses and database queries.",
+      "description": "Optimized backend workflows for a bulk WhatsApp messaging service, improving enterprise message-delivery speed.Integrated the WhatsApp API for high-volume queues and streamlined API responses and database queries. Streamlined API response times and database queries, enabling local businesses to execute largescale marketing broadcasts efficiently.",
       "tech": ["Node.js", "Express.js", "WhatsApp API", "MongoDB"],
       "demo": "https://ping.blutec.ai/",
       "code": null,
@@ -142,7 +218,7 @@
       "id": "03",
       "title": "Scout",
       "category": "LEAD GENERATION | MAPS",
-      "description": "A Google Maps-based B2B lead-generation tool that streamlines automated business-data extraction, prospect discovery, and client outreach workflows.",
+      "description": "A Google Maps-based B2B lead-generation tool that streamlines automated business-data extraction, prospect discovery, and client outreach workflows. Assisted in developing an automated data extraction tool utilizing Google Maps to streamline B2B lead generation and client discovery.",
       "tech": [
         "Google Maps",
         "Data Extraction",
@@ -158,7 +234,7 @@
       "id": "04",
       "title": "Mahendra Ke Namkeen",
       "category": "FULL STACK | PAYMENTS",
-      "description": "A B2C eCommerce platform with an optimized storefront and dedicated admin panel. Integrated Razorpay, secure authentication, live order management, user data, and platform analytics to support real-world revenue.",
+      "description": "A B2C eCommerce platform with an optimized storefront and dedicated admin panel. Integrated Razorpay, secure authentication, live order management, user data, and platform analytics to support real-world revenue.Engineered a powerful backend to efficiently manage live orders, user data, and platform analytics, driving real-world revenue.",
       "tech": ["Next.js", "React.js", "Node.js", "MongoDB", "Razorpay API"],
       "demo": "https://mahendrakenamkeen.com/",
       "code": null,
@@ -229,7 +305,7 @@
         "MongoDB",
         "PyTorch"
       ],
-      "demo": "https://github.com/darshansatapara/Assistent_Article_fetcher/",
+      "demo": "https://news-analytics-dashboard-five.vercel.app/newsmap",
       "code": "https://github.com/darshansatapara/Assistent_Article_fetcher/",
       "resumeVariants": ["data-ai"],
       "color": "bg-[#4ecdc4]"
@@ -367,7 +443,12 @@
     }
   ],
   "languages": ["English", "Hindi", "Gujarati"],
-  "interests": ["Podcasting", "Group discussions", "Vlogging", "Technical collaboration"],
+  "interests": [
+    "Podcasting",
+    "Group discussions",
+    "Vlogging",
+    "Technical collaboration"
+  ],
   "creatorProfiles": [
     {
       "id": "talk-with-darshan-youtube",

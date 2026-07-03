@@ -1,12 +1,18 @@
 import Image from "next/image";
 import Link from "next/link";
 import portfolio from "../data/portfolio.json";
+import { breadcrumbJsonLd, profilePageJsonLd } from "../seo";
 
 export default function About() {
   const { personal, education, skills, certificates, languages } = portfolio;
+  const schemas = [
+    profilePageJsonLd(),
+    breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "About", path: "/about" }])
+  ];
 
   return (
     <main className="min-h-screen bg-[#fffdf5] py-12 px-4 md:px-8 font-mono text-black">
+      {schemas.map((schema) => <script key={schema["@type"]} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />)}
       <section className="grid grid-cols-1 lg:grid-cols-12 border-4 border-black bg-white shadow-[12px_12px_0_#000]">
         <div className="lg:col-span-7 p-8 md:p-14 border-b-4 lg:border-b-0 lg:border-r-4 border-black">
           <span className="inline-block bg-[#facc15] border-2 border-black px-3 py-1 text-xs font-black uppercase -rotate-2">About me</span>

@@ -2,6 +2,7 @@ import Hero from "./components/Hero";
 import Services from "./components/Services";
 import Experience from "./components/Experience";
 import Projects from "./components/Projects";
+import FAQ from "./components/FAQ";
 import portfolio from "./data/portfolio.json";
 import { faqJsonLd, getBaseUrl } from "./seo";
 
@@ -10,10 +11,14 @@ export default function Home() {
   const webPageSchema = {
     "@context": "https://schema.org",
     "@type": "WebPage",
+    "@id": `${baseUrl}/#webpage`,
     name: `${portfolio.personal.name} | ${portfolio.personal.role} Portfolio`,
     url: `${baseUrl}/`,
-    description: portfolio.personal.summary,
-    about: { "@type": "Person", name: portfolio.personal.name },
+    description: portfolio.seo.description,
+    keywords: [...portfolio.seo.primaryKeywords, ...portfolio.seo.longTailKeywords].join(", "),
+    dateModified: portfolio.personal.contentUpdated,
+    isPartOf: { "@id": `${baseUrl}/#website` },
+    about: { "@id": `${baseUrl}/#darshan-satapara` },
     primaryImageOfPage: `${baseUrl}${portfolio.personal.profileImage}`,
     inLanguage: "en-IN"
   };
@@ -28,6 +33,7 @@ export default function Home() {
       <Services />
       <Experience />
       <Projects />
+      <FAQ />
     </main>
   );
 }

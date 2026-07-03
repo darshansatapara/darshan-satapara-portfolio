@@ -2,9 +2,9 @@ import { getBaseUrl } from "../seo";
 import portfolio from "../data/portfolio.json";
 
 export const metadata = {
-  title: `Contact ${portfolio.personal.name}`,
+  title: "Contact - Full-Stack, Python & AI Opportunities",
   description: `Contact ${portfolio.personal.name} for full-stack, Python, data engineering, and AI automation opportunities.`,
-  keywords: [`Contact ${portfolio.personal.name}`, `${portfolio.personal.name} developer`, portfolio.personal.email],
+  keywords: [`Contact ${portfolio.personal.name}`, `${portfolio.personal.name} developer`, "hire full stack developer India", "hire AI developer", "Python developer contact"],
   alternates: {
     canonical: `${getBaseUrl()}/contact`,
   },
