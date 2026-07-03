@@ -38,7 +38,8 @@ function personEntity() {
       { "@type": "Occupation", name: "Full-Stack Developer" },
       { "@type": "Occupation", name: "Python Developer" },
       { "@type": "Occupation", name: "AI Developer" },
-      { "@type": "Occupation", name: "Data Engineer" }
+      { "@type": "Occupation", name: "Data Engineer" },
+      { "@type": "Occupation", name: "Podcaster and Content Creator" }
     ],
     description: personal.summary,
     email: personal.email,
@@ -46,7 +47,7 @@ function personEntity() {
     address: { "@type": "PostalAddress", addressCountry: "IN" },
     alumniOf: { "@type": "CollegeOrUniversity", name: portfolio.education[0].institution },
     worksFor: currentCompanies,
-    knowsAbout: [...Object.values(skills).flat(), ...seo.expertiseTopics],
+    knowsAbout: [...Object.values(skills).flat(), ...seo.expertiseTopics, ...portfolio.contentCreator.activities],
     knowsLanguage: portfolio.languages,
     award: portfolio.certificates.map((certificate) => `${certificate.name} - ${certificate.issuer}`),
     nationality: "Indian",

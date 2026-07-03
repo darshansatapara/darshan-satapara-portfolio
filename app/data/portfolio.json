@@ -344,6 +344,80 @@
       "color": "bg-[#ff6b6b]"
     }
   ],
+  "clientProjects": [
+    {
+      "id": "01",
+      "client": "Nargis Niaz",
+      "title": "Real Estate Website (Elite in Emirates)",
+      "category": "FULL STACK | REAL ESTATE",
+      "year": "2025",
+      "points": [
+        "Engineered a full-stack real estate platform featuring dynamic property listings and a highly responsive, modern user interface.",
+        "Developed a comprehensive administrative dashboard to centralize and streamline the management of property inventories, media assets, and website data.",
+        "Architected a structured, SEO-optimized blog section to drive organic traffic and deliver continuous real estate market updates."
+      ],
+      "tags": ["React.js", "Node.js", "MongoDB", "Cloudinary", "Tailwind CSS"],
+      "image": "/elite.png",
+      "links": [
+        {
+          "label": "Live Site",
+          "href": "https://www.eliteinemirates.com/"
+        }
+      ]
+    },
+    {
+      "id": "02",
+      "client": "Sarvam Patel",
+      "title": "EdTech Platform (The Sarvam Art)",
+      "category": "EDTECH | CLASS MANAGEMENT",
+      "year": "2025",
+      "points": [
+        "Built an end-to-end class management software for an art academy focused on teaching art, design, and painting to live students.",
+        "Delivered the administrative dashboard for production use, including tools to manage classes, users, and academy operations.",
+        "Kept the student-facing website in active development to support a streamlined learning experience for enrolled students."
+      ],
+      "tags": ["Next.js", "React.js", "Node.js", "Admin Dashboard", "EdTech"],
+      "image": "/sarvam.png",
+      "links": [
+        {
+          "label": "Student Website",
+          "href": "https://art-fe-ten.vercel.app/"
+        },
+        {
+          "label": "Admin Dashboard",
+          "href": "https://sarvam-art.instabizweb.com/dashboard"
+        }
+      ]
+    },
+    {
+      "id": "03",
+      "client": "Gigwell Services",
+      "title": "Service Marketplace",
+      "category": "PLATFORM | HOME SERVICES",
+      "year": "2023",
+      "points": [
+        "Developed a comprehensive home services marketplace connecting users with local maintenance professionals.",
+        "Structured the platform for common service categories such as plumbing, electrical work, cleaning, and furniture repair.",
+        "Focused on a clear service-browsing experience that makes local discovery and booking simpler for users."
+      ],
+      "tags": [
+        "Marketplace",
+        "Home Services",
+        "User Experience",
+        "Next.js",
+        "React.js",
+        "Node.js",
+        "Admin Dashboard"
+      ],
+      "image": "/gigwell.png",
+      "links": [
+        {
+          "label": "Live Website",
+          "href": "https://gigwellservices.com/"
+        }
+      ]
+    }
+  ],
   "skills": {
     "Programming Languages": ["C++", "Python", "JavaScript"],
     "Backend Development": [
@@ -449,6 +523,31 @@
     "Vlogging",
     "Technical collaboration"
   ],
+  "contentCreator": {
+    "role": "Podcaster, Group Discussion Host & Vlogger",
+    "headline": "Podcasting, Group Discussions & Vlogging",
+    "summary": "I enjoy conversations as much as code. Through Talk With Darshan, I host podcasts and group discussions that share ideas and different perspectives. Through The Darsh Vlogz, I document personal experiences, everyday moments and my creator journey.",
+    "activities": [
+      "Podcast hosting",
+      "Group discussion hosting",
+      "Guest conversations",
+      "Short-form podcast clips",
+      "Personal vlogging",
+      "Creator journey and everyday experiences"
+    ],
+    "brands": [
+      {
+        "name": "Talk With Darshan",
+        "type": "Podcast & Discussion Platform",
+        "description": "Podcasts, group discussions, guest conversations and thoughtful short-form highlights."
+      },
+      {
+        "name": "The Darsh Vlogz",
+        "type": "Personal Vlogging Channel",
+        "description": "Personal experiences, everyday moments, behind-the-scenes updates and the creator journey."
+      }
+    ]
+  },
   "creatorProfiles": [
     {
       "id": "talk-with-darshan-youtube",
@@ -456,6 +555,7 @@
       "name": "Talk With Darshan",
       "handle": "@talkwith_darshan",
       "focus": "Podcasts and group discussions",
+      "contentType": ["Podcasts", "Group discussions", "Guest conversations"],
       "url": "https://www.youtube.com/@talkwith_darshan",
       "color": "bg-[#ff6b6b]"
     },
@@ -465,6 +565,11 @@
       "name": "The Darsh Vlogz",
       "handle": "@thedarshvlogz",
       "focus": "Personal vlogs and experiences",
+      "contentType": [
+        "Personal vlogs",
+        "Everyday experiences",
+        "Creator journey"
+      ],
       "url": "https://www.youtube.com/@thedarshvlogz",
       "color": "bg-[#facc15]"
     },
@@ -474,6 +579,11 @@
       "name": "Talk With Darshan",
       "handle": "@talkwithdarshan",
       "focus": "Podcast clips and discussion highlights",
+      "contentType": [
+        "Podcast clips",
+        "Discussion highlights",
+        "Short-form content"
+      ],
       "url": "https://www.instagram.com/talkwithdarshan/",
       "color": "bg-[#4ecdc4]"
     },
@@ -483,6 +593,11 @@
       "name": "The Darsh Vlogs",
       "handle": "@thedarshvlogs",
       "focus": "Vlogging updates and short-form moments",
+      "contentType": [
+        "Vlog updates",
+        "Short-form moments",
+        "Behind the scenes"
+      ],
       "url": "https://www.instagram.com/thedarshvlogs/",
       "color": "bg-white"
     }

@@ -3,7 +3,7 @@ import portfolio from "../data/portfolio.json";
 export const dynamic = "force-static";
 
 export function GET() {
-  const { personal, seo, experience, projects, services, socials, creatorProfiles } = portfolio;
+  const { personal, seo, experience, projects, services, socials, contentCreator, creatorProfiles } = portfolio;
   const projectLines = projects.map((project) => {
     const url = project.demo || project.code;
     return `- ${url ? `[${project.title}](${url})` : project.title}: ${project.description}`;
@@ -30,6 +30,11 @@ export function GET() {
     "",
     "## Selected projects",
     ...projectLines,
+    "",
+    "## Podcasting, group discussions and vlogging",
+    `- Role: ${contentCreator.role}`,
+    `- ${contentCreator.summary}`,
+    ...contentCreator.brands.map((brand) => `- ${brand.name} (${brand.type}): ${brand.description}`),
     "",
     "## Official profiles",
     `- [LinkedIn](${socials.linkedin})`,

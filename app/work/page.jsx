@@ -1,6 +1,7 @@
 import Link from "next/link";
 import portfolio from "../data/portfolio.json";
 import { breadcrumbJsonLd, projectsJsonLd } from "../seo";
+import ClientProjects from "../components/ClientProjects";
 
 export default function Work() {
   const schemas = [
@@ -13,7 +14,7 @@ export default function Work() {
       {schemas.map((schema) => <script key={schema["@type"]} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />)}
       <div className="flex flex-col md:flex-row items-end justify-between mb-12 gap-6">
         <div>
-          <span className="inline-block bg-black text-white px-3 py-1 text-xs font-bold uppercase shadow-[4px_4px_0_#4ecdc4]">Portfolio 2026</span>
+          <span className="inline-block bg-black text-white px-3 py-1 text-xs font-bold uppercase shadow-[4px_4px_0_#4ecdc4]">Portfolio</span>
           <h1 className="text-5xl md:text-8xl font-black uppercase tracking-tighter leading-none mt-4">Full-Stack, AI<br />& Data Projects</h1>
         </div>
         <a href={portfolio.socials.github} target="_blank" rel="noopener noreferrer" className="border-4 border-black bg-[#facc15] px-6 py-4 font-black uppercase shadow-[6px_6px_0_#000]">GitHub profile ↗</a>
@@ -36,7 +37,10 @@ export default function Work() {
             </div>
           </article>
         ))}
+       
       </div>
+
+      <ClientProjects />
     </main>
   );
 }

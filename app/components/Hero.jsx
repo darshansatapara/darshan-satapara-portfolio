@@ -9,14 +9,14 @@ export default function Hero() {
     <section className="w-full mx-auto border-x-4 border-t-4 border-black grid grid-cols-1 lg:grid-cols-12 mt-8 bg-white font-mono text-black selection:bg-[#ff6b6b] selection:text-white">
       <div className="lg:col-span-8 border-b-4 lg:border-r-4 border-black p-8 md:p-12 flex flex-col justify-center hover:bg-[#ff6b6b] hover:text-white transition-colors duration-300 group">
         <p className="font-bold text-xs md:text-sm tracking-widest mb-2 opacity-60 group-hover:text-black">
-          PORTFOLIO 2026
+          PORTFOLIO
         </p>
-        <h1 className="text-4xl sm:text-7xl md:text-8xl font-black uppercase tracking-tighter leading-none break-words">
+        <h1 className="text-4xl sm:text-7xl md:text-8xl font-black uppercase tracking-tighter leading-none wrap-break-words">
           {personal.firstName} <br className="hidden md:block" /> {personal.lastName}
         </h1>
       </div>
 
-      <div className="lg:col-span-4 border-b-4 border-black p-8 flex flex-col justify-between bg-[#4ecdc4] min-h-[200px]">
+      <div className="lg:col-span-4 border-b-4 border-black p-8 flex flex-col justify-between bg-[#4ecdc4] min-h-50">
         <div className="flex justify-between items-start">
           <span className="text-4xl font-black opacity-50">01</span>
           <div className="inline-flex items-center gap-3 px-4 py-2 bg-white border-2 border-black rounded-full shadow-[2px_2px_0_0_#000]">
@@ -33,7 +33,7 @@ export default function Hero() {
         </div>
       </div>
 
-      <div className="lg:col-span-5 lg:row-span-2 border-b-4 lg:border-b-0 lg:border-r-4 border-black relative h-[400px] md:h-125 lg:h-auto min-h-[600px] group overflow-hidden">
+      <div className="lg:col-span-5 lg:row-span-2 border-b-4 lg:border-b-0 lg:border-r-4 border-black relative h-150 lg:h-auto min-h-150 group overflow-hidden bg-[#e8f3e2]">
         <Image
           src={personal.profileImage}
           alt={personal.name}
@@ -62,7 +62,7 @@ export default function Hero() {
         </div>
       </div>
 
-      <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-3 min-h-[100px]">
+      <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-3 min-h-25">
         {portfolio.resumes.map((resume) => (
           <a key={resume.id} href={resume.file} download className="bg-white hover:bg-black hover:text-white border-b-4 sm:border-b-0 sm:border-r-4 border-black p-5 text-sm md:text-base font-bold flex items-center justify-center text-center transition-all">
             {resume.shortLabel.toUpperCase()} ↓
