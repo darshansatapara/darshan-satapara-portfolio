@@ -11,6 +11,9 @@ export default function RootLayout({ children }) {
 
   return (
     <html lang="en">
+      <head>
+        <link rel="icon" href="/ds.png" />
+      </head>
       <body className={`${bricolage.variable} ${spaceMono.variable} antialiased`}>
         <Navbar />
         {children}
@@ -27,6 +30,7 @@ export const metadata = {
   title: { default: siteConfig.title, template: `%s | ${siteConfig.name}` },
   description: siteConfig.description,
   keywords: siteConfig.keywords,
+  icons: { icon: "/ds.png" },
   authors: [{ name: siteConfig.name, url: getBaseUrl() }],
   creator: siteConfig.name,
   publisher: siteConfig.name,
