@@ -40,7 +40,7 @@ export default function Hero() {
         </div>
       </div>
 
-      <div className="lg:col-span-5 lg:row-span-2 border-b-4 lg:border-b-0 lg:border-r-4 border-black relative h-[400px] md:h-125 lg:h-auto min-h-[600px] group overflow-hidden">
+      <div className="lg:col-span-5 lg:row-span-2 border-b-4 lg:border-b-0 lg:border-r-4 border-black relative h-100 md:h-125 lg:h-auto min-h-160 group overflow-hidden">
         <Image
           src={personal.profileImage}
           alt={personal.name}
@@ -49,7 +49,9 @@ export default function Hero() {
           priority
         />
         <div className="absolute bottom-0 left-0 w-full bg-black/80 p-4 translate-y-full group-hover:translate-y-0 transition-transform">
-          <p className="text-white text-sm">📍 {personal.location.toUpperCase()}</p>
+          <p className="text-white text-sm">
+            📍 {personal.location.toUpperCase()}
+          </p>
         </div>
       </div>
 

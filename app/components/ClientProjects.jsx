@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import portfolio from "../data/portfolio.json";
 
 export default function ClientProjects() {
@@ -41,7 +42,13 @@ export default function ClientProjects() {
             <p className="text-sm font-bold uppercase tracking-widest mb-6 opacity-70">
               {project.year}
             </p>
-
+            <Image
+              src={project.image}
+              alt={project.title}
+              width={500}
+              height={300}
+              className="w-full h-auto object-cover mb-8"
+            />
             <ul className="space-y-3 mb-8 text-sm leading-relaxed">
               {project.points.map((point) => (
                 <li key={point} className="flex gap-3">
