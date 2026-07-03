@@ -12,7 +12,8 @@ export default function Hero() {
           PORTFOLIO
         </p>
         <h1 className="text-4xl sm:text-7xl md:text-8xl font-black uppercase tracking-tighter leading-none wrap-break-words">
-          {personal.firstName} <br className="hidden md:block" /> {personal.lastName}
+          {personal.firstName} <br className="hidden md:block" />{" "}
+          {personal.lastName}
         </h1>
       </div>
 
@@ -24,16 +25,22 @@ export default function Hero() {
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-500 opacity-75" />
               <span className="relative inline-flex rounded-full h-3 w-3 bg-green-600 border border-black" />
             </span>
-            <span className="text-sm font-bold uppercase">{personal.availability}</span>
+            <span className="text-sm font-bold uppercase">
+              {personal.availability}
+            </span>
           </div>
         </div>
         <div>
-          <h2 className="text-sm font-bold border-b-2 border-black pb-1 mb-2 inline-block">STATUS</h2>
-          <p className="text-xl md:text-2xl font-bold leading-tight">{personal.shortRole}</p>
+          <h2 className="text-sm font-bold border-b-2 border-black pb-1 mb-2 inline-block">
+            STATUS
+          </h2>
+          <p className="text-xl md:text-2xl font-bold leading-tight">
+            {personal.shortRole}
+          </p>
         </div>
       </div>
 
-      <div className="lg:col-span-5 lg:row-span-2 border-b-4 lg:border-b-0 lg:border-r-4 border-black relative h-150 lg:h-auto min-h-150 group overflow-hidden bg-[#e8f3e2]">
+      <div className="lg:col-span-5 lg:row-span-2 border-b-4 lg:border-b-0 lg:border-r-4 border-black relative h-[400px] md:h-125 lg:h-auto min-h-[600px] group overflow-hidden">
         <Image
           src={personal.profileImage}
           alt={personal.name}
@@ -48,27 +55,41 @@ export default function Hero() {
 
       <div className="lg:col-span-7 border-b-4 border-black p-8 md:p-12 flex flex-col justify-center">
         <h2 className="text-3xl md:text-5xl font-bold mb-6 leading-tight">
-          <span className="bg-black text-white px-2">FULL-STACK</span> & PYTHON DEVELOPER
+          <span className="bg-black text-white px-2">FULL-STACK</span> & PYTHON
+          DEVELOPER
         </h2>
         <p className="text-base md:text-xl text-[#444] font-medium leading-relaxed max-w-3xl">
           {personal.summary}
         </p>
         <div className="flex flex-wrap gap-2 mt-7">
-          {portfolio.skills["Programming Languages"].concat(["React.js", "Node.js", "AI Automation"]).map((skill) => (
-            <span key={skill} className="border-2 border-black bg-yellow-300 px-3 py-1 text-xs font-bold uppercase">
-              {skill}
-            </span>
-          ))}
+          {portfolio.skills["Programming Languages"]
+            .concat(["React.js", "Node.js", "AI Automation"])
+            .map((skill) => (
+              <span
+                key={skill}
+                className="border-2 border-black bg-yellow-300 px-3 py-1 text-xs font-bold uppercase"
+              >
+                {skill}
+              </span>
+            ))}
         </div>
       </div>
 
       <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-3 min-h-25">
         {portfolio.resumes.map((resume) => (
-          <a key={resume.id} href={resume.file} download className="bg-white hover:bg-black hover:text-white border-b-4 sm:border-b-0 sm:border-r-4 border-black p-5 text-sm md:text-base font-bold flex items-center justify-center text-center transition-all">
+          <a
+            key={resume.id}
+            href={resume.file}
+            download
+            className="bg-white hover:bg-black hover:text-white border-b-4 sm:border-b-0 sm:border-r-4 border-black p-5 text-sm md:text-base font-bold flex items-center justify-center text-center transition-all"
+          >
             {resume.shortLabel.toUpperCase()} ↓
           </a>
         ))}
-        <Link href="/contact" className="bg-[#ff6b6b] hover:bg-[#ff4747] text-white p-5 text-lg font-bold flex items-center justify-center gap-2 transition-all">
+        <Link
+          href="/contact"
+          className="bg-[#ff6b6b] hover:bg-[#ff4747] text-white p-5 text-lg font-bold flex items-center justify-center gap-2 transition-all"
+        >
           LET&apos;S TALK →
         </Link>
       </div>

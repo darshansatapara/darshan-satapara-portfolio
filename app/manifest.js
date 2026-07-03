@@ -1,12 +1,8 @@
-import { getBaseUrl, siteConfig } from "./seo";
-
 export default function manifest() {
-  const baseUrl = getBaseUrl();
-
   return {
-    name: siteConfig.title,
-    short_name: siteConfig.shortName,
-    description: siteConfig.description,
+    name: "Darshan Satapara | Full-Stack, Python & AI Developer",
+    short_name: "Darshan",
+    description: "Darshan Satapara is a full-stack, Python and AI developer building React and Next.js apps, Node.js APIs, data pipelines, OCR and LLM automation in India.",
     start_url: "/",
     display: "standalone",
     background_color: "#fefbed",
@@ -14,9 +10,9 @@ export default function manifest() {
     lang: "en-IN",
     icons: [
       {
-        src: `${baseUrl}/favicon.ico`,
+        src: "/ds.png",
         sizes: "any",
-        type: "image/x-icon",
+        type: "image/png",
       },
     ],
   };
