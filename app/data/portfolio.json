@@ -1,0 +1,409 @@
+{
+  "personal": {
+    "name": "Darshan Satapara",
+    "firstName": "Darshan",
+    "lastName": "Satapara",
+    "brand": "DARSHAN.DEV",
+    "role": "Full-Stack, Python & AI Developer",
+    "shortRole": "FULL-STACK DEV & AI AUTOMATION",
+    "email": "darshansatapara286@gmail.com",
+    "phone": "+91 72038 35504",
+    "phoneLink": "+917203835504",
+    "location": "India",
+    "resume": "/darshan_resume_m.pdf",
+    "profileImage": "/profile-me.jpg",
+    "secondaryProfileImage": "/profile2.jpg",
+    "summary": "Full-stack engineer building scalable web applications and high-volume data pipelines using React, Node.js, and Python. I create AI-powered automation, OCR systems, and LLM workflows that eliminate manual bottlenecks.",
+    "about": "I am a Computer Engineering student and full-stack engineer who enjoys turning complex workflows into reliable products. My work spans React and Next.js interfaces, Node.js and Python backends, high-volume database pipelines, OCR systems, and practical LLM automation. I am also a passionate podcaster and group-discussion host, bringing strong communication and a collaborative mindset to fast-paced teams.",
+    "availability": "Available for opportunities",
+    "domain": "https://darshan.techorbitra.com"
+  },
+  "resumes": [
+    {
+      "id": "mixed",
+      "label": "Development + Data + AI",
+      "shortLabel": "Mixed Resume",
+      "file": "/darshan_resume_m.pdf",
+      "description": "Full-stack development, backend engineering, data pipelines, and AI automation."
+    },
+    {
+      "id": "data-ai",
+      "label": "Data + AI Focus",
+      "shortLabel": "Data & AI Resume",
+      "file": "/darshan_resume_d.pdf",
+      "description": "Data engineering, OCR, LLM workflows, fine-tuning, ETL, and Python automation."
+    }
+  ],
+  "socials": {
+    "linkedin": "https://linkedin.com/in/darshansatapara/",
+    "github": "https://github.com/darshansatapara",
+    "leetcode": "https://leetcode.com/u/darshansatapara"
+  },
+  "education": [
+    {
+      "degree": "B.Tech in Computer Engineering",
+      "institution": "Silver Oak University",
+      "period": "2022-2026",
+      "score": "CGPA: 9.30"
+    }
+  ],
+  "experience": [
+    {
+      "id": "01",
+      "role": "Backend & Python Developer Intern",
+      "company": "7Span",
+      "period": "Jan 2026 - Jul 2026",
+      "current": true,
+      "url": "https://7span.com/",
+      "logo": "/7span.png",
+      "accent": "#4ecdc4",
+      "highlights": [
+        "Automated PDF parsing workflows using OCR services, OpenAI, and Mistral AI, significantly reducing manual data-entry bottlenecks.",
+        "Developed a scalable client-agency platform backend using Node.js, including secure design-asset sharing through AWS S3.",
+        "Aligned technical features with client requirements during Agile sprints to support seamless cross-functional delivery."
+      ]
+    },
+    {
+      "id": "02",
+      "role": "Full-Stack Developer Intern",
+      "company": "Instabizweb",
+      "period": "Sep 2025 - Dec 2025",
+      "current": false,
+      "url": "https://www.instabizweb.com/",
+      "logo": "/instabizweb.ico",
+      "accent": "#ff6b6b",
+      "highlights": [
+        "Collaborated on Instant Dukaan, a SaaS platform enabling local retail shops to rapidly deploy online eCommerce storefronts.",
+        "Contributed to Blutec Ping and optimized backend workflows for a bulk WhatsApp messaging service.",
+        "Assisted in building Scout, a Google Maps-based lead-generation tool for automated B2B data extraction and client discovery."
+      ]
+    },
+    {
+      "id": "03",
+      "role": "Full-Stack Developer Intern",
+      "company": "Egniol Services Private Limited",
+      "period": "Jul 2025 - Aug 2025",
+      "current": false,
+      "url": "https://www.linkedin.com/company/egniol-group",
+      "logo": "/egniol.png",
+      "accent": "#facc15",
+      "highlights": [
+        "Analyzed and consolidated architecture across 8-10 databases and 30+ interconnected tables containing more than 15 million records.",
+        "Created a centralized master-data table that eliminated the overhead of resource-heavy multi-join queries.",
+        "Automated business workflows with Python, including UltraMsg WhatsApp broadcasts, domain-specific news scraping, and Google review checks."
+      ]
+    },
+    {
+      "id": "04",
+      "role": "Full-Stack Developer Intern",
+      "company": "Webseeder Technologies Private Limited",
+      "period": "May 2025 - Jun 2025",
+      "current": false,
+      "url": "https://www.webseeder.in/",
+      "logo": "/webseeder.webp",
+      "accent": "#ffffff",
+      "highlights": [
+        "Engineered a full-stack eCommerce platform with secure Razorpay integration and robust admin-management controls.",
+        "Co-developed a MERN-stack task-management system to isolate and streamline multi-team project workflows.",
+        "Optimized responsive design and frontend performance to deliver a seamless end-to-end user experience."
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "id": "01",
+      "title": "Instant Dukaan",
+      "category": "SAAS | ECOMMERCE",
+      "description": "A scalable SaaS platform empowering local retailers to rapidly deploy customized online eCommerce storefronts. I contributed responsive frontend components, backend APIs, secure authentication, dynamic inventory, and multi-tenant merchant workflows.",
+      "tech": [
+        "React.js",
+        "Node.js",
+        "Express.js",
+        "MongoDB",
+        "SaaS Architecture"
+      ],
+      "demo": "https://www.instantdukaan.com/",
+      "code": null,
+      "resumeVariants": ["mixed", "data-ai"],
+      "color": "bg-[#4ecdc4]"
+    },
+    {
+      "id": "02",
+      "title": "Blutec Ping",
+      "category": "WHATSAPP | BACKEND",
+      "description": "Optimized backend workflows for a bulk WhatsApp messaging service, improving enterprise message-delivery speed. Integrated the WhatsApp API for high-volume queues and streamlined API responses and database queries.",
+      "tech": ["Node.js", "Express.js", "WhatsApp API", "MongoDB"],
+      "demo": "https://ping.blutec.ai/",
+      "code": null,
+      "resumeVariants": ["mixed", "data-ai"],
+      "color": "bg-white"
+    },
+    {
+      "id": "03",
+      "title": "Scout",
+      "category": "LEAD GENERATION | MAPS",
+      "description": "A Google Maps-based B2B lead-generation tool that streamlines automated business-data extraction, prospect discovery, and client outreach workflows.",
+      "tech": [
+        "Google Maps",
+        "Data Extraction",
+        "Lead Generation",
+        "Automation"
+      ],
+      "demo": "https://scout.blutec.ai/",
+      "code": null,
+      "resumeVariants": ["mixed", "data-ai"],
+      "color": "bg-[#facc15]"
+    },
+    {
+      "id": "04",
+      "title": "Mahendra Ke Namkeen",
+      "category": "FULL STACK | PAYMENTS",
+      "description": "A B2C eCommerce platform with an optimized storefront and dedicated admin panel. Integrated Razorpay, secure authentication, live order management, user data, and platform analytics to support real-world revenue.",
+      "tech": ["Next.js", "React.js", "Node.js", "MongoDB", "Razorpay API"],
+      "demo": "https://mahendrakenamkeen.com/",
+      "code": null,
+      "resumeVariants": ["mixed", "data-ai"],
+      "color": "bg-[#ff6b6b]"
+    },
+    {
+      "id": "05",
+      "title": "AI-Powered OCR Pipeline",
+      "category": "AI | DOCUMENT AUTOMATION",
+      "description": "An automated extraction pipeline that converts unstructured PDF brochures into database-ready JSON. It combines OpenAI, Mistral AI, AWS, Azure, MinerU, and Mistral OCR approaches, then syncs results to Directus and reduces manual entry by more than 80%.",
+      "tech": [
+        "Node.js",
+        "Python",
+        "OpenAI API",
+        "Mistral AI",
+        "Directus",
+        "OCR"
+      ],
+      "demo": "https://github.com/darshansatapara/OCR",
+      "code": "https://github.com/darshansatapara/OCR",
+      "resumeVariants": ["mixed", "data-ai"],
+      "color": "bg-[#4ecdc4]"
+    },
+    {
+      "id": "06",
+      "title": "Enterprise ETL & Denormalization Pipeline",
+      "category": "DATA | ARCHITECTURE",
+      "description": "Merged 30+ tables across 8-10 databases containing over 15 million records into a single source of truth. A Python ETL continuously synchronizes daily inserts and improved query retrieval speed by approximately 60%.",
+      "tech": ["SQL", "Python", "Database Architecture", "ETL"],
+      "demo": null,
+      "code": null,
+      "resumeVariants": ["data-ai"],
+      "color": "bg-[#facc15]"
+    },
+    {
+      "id": "07",
+      "title": "Multi-Model Content Automation",
+      "category": "LLM | GEO CONTENT",
+      "description": "An automated task-handoff pipeline orchestrating Storyteller, Architect, and Editor LLM roles. The framework enforces Generative Engine Optimization and human-touch formatting while removing manual prompting bottlenecks.",
+      "tech": ["Python", "LLM APIs", "Prompt Engineering", "GEO"],
+      "demo": "https://github.com/darshansatapara/Multi-Model-Content-Automation",
+      "code": "https://github.com/darshansatapara/Multi-Model-Content-Automation",
+      "resumeVariants": ["data-ai"],
+      "color": "bg-[#ff6b6b]"
+    },
+    {
+      "id": "08",
+      "title": "Inshorts News Scraper",
+      "category": "PYTHON | AUTOMATION",
+      "description": "A Python automation that scrapes daily trending, domain-specific news from Inshorts and organizes it through the Google Sheets API every morning, saving the content team more than two research hours per day.",
+      "tech": ["Python", "BeautifulSoup", "Selenium", "Google Sheets API"],
+      "demo": "https://github.com/darshansatapara/Inshort-News-Scrapper",
+      "code": "https://github.com/darshansatapara/Inshort-News-Scrapper",
+      "resumeVariants": ["mixed", "data-ai"],
+      "color": "bg-white"
+    },
+    {
+      "id": "09",
+      "title": "Generative AI Fine-Tuning Pipeline",
+      "category": "LLM | FINE-TUNING",
+      "description": "Fine-tuned Meta Llama 3.1 8B with Unsloth and QLoRA on dual T4 GPUs. Built a data-ingestion pipeline to clean and structure a golden dataset of more than 40,000 MongoDB news articles for specialized content generation.",
+      "tech": [
+        "Python",
+        "Llama 3.1 8B",
+        "Unsloth",
+        "QLoRA",
+        "MongoDB",
+        "PyTorch"
+      ],
+      "demo": "https://github.com/darshansatapara/Assistent_Article_fetcher/",
+      "code": "https://github.com/darshansatapara/Assistent_Article_fetcher/",
+      "resumeVariants": ["data-ai"],
+      "color": "bg-[#4ecdc4]"
+    },
+    {
+      "id": "10",
+      "title": "X AI Automation Bot",
+      "category": "AI | SOCIAL AUTOMATION",
+      "description": "A Python pipeline using free-tier LLM APIs to generate context-aware content and autonomously publish scheduled posts to X, increasing posting frequency and eliminating manual social-media management.",
+      "tech": ["Python", "X API", "Mistral AI", "OpenRouter APIs"],
+      "demo": "https://github.com/darshansatapara/X-Post-Automation",
+      "code": "https://github.com/darshansatapara/X-Post-Automation",
+      "resumeVariants": ["mixed", "data-ai"],
+      "color": "bg-[#facc15]"
+    },
+    {
+      "id": "11",
+      "title": "Task Management System",
+      "category": "MERN | TEAM WORKFLOWS",
+      "description": "A co-developed MERN-stack task-management system designed to isolate and streamline project workflows across multiple teams.",
+      "tech": ["MongoDB", "Express.js", "React.js", "Node.js"],
+      "demo": null,
+      "code": null,
+      "resumeVariants": ["mixed", "data-ai"],
+      "color": "bg-white"
+    },
+    {
+      "id": "12",
+      "title": "Developer Portfolio",
+      "category": "NEXT.JS | PERSONAL BRAND",
+      "description": "A responsive personal portfolio presenting my development, data-engineering, and AI work through a structured, JSON-driven content system.",
+      "tech": ["Next.js", "React.js", "Tailwind CSS", "JSON"],
+      "demo": "https://darshan.techorbitra.com/",
+      "code": "https://github.com/darshansatapara",
+      "resumeVariants": ["mixed", "data-ai"],
+      "color": "bg-[#ff6b6b]"
+    }
+  ],
+  "skills": {
+    "Programming Languages": ["C++", "Python", "JavaScript"],
+    "Backend Development": [
+      "Node.js",
+      "Express.js",
+      "FastAPI",
+      "Directus",
+      "Supabase"
+    ],
+    "Frontend Development": [
+      "React.js",
+      "Next.js",
+      "Streamlit",
+      "HTML",
+      "CSS",
+      "Tailwind CSS",
+      "Bootstrap"
+    ],
+    "Databases": ["MySQL", "MongoDB", "PostgreSQL", "Redis"],
+    "Version Control & Collaboration": ["Git", "GitHub", "GitHub Actions"],
+    "Core Skills": [
+      "Problem Solving",
+      "RESTful API Design",
+      "Database Design",
+      "Leadership"
+    ],
+    "AI, Data & Analytics": [
+      "OpenAI API",
+      "Mistral AI",
+      "OCR",
+      "PyTorch",
+      "Pandas",
+      "NumPy",
+      "Seaborn",
+      "Matplotlib",
+      "Power BI",
+      "LLM Fine-Tuning",
+      "QLoRA"
+    ],
+    "Cloud, Tools & APIs": [
+      "AWS S3",
+      "Google Sheets API",
+      "Google Cloud",
+      "WhatsApp API",
+      "WhatsApp Broadcasting",
+      "Twilio",
+      "UltraMsg",
+      "Blutec Ping"
+    ]
+  },
+  "services": [
+    {
+      "id": "01",
+      "icon": "💻",
+      "title": "Full-Stack Development",
+      "description": "Scalable React and Next.js products backed by secure Node.js APIs and well-designed databases.",
+      "features": [
+        "Responsive web applications",
+        "REST API development",
+        "Authentication and payments",
+        "Admin panels and analytics"
+      ]
+    },
+    {
+      "id": "02",
+      "icon": "🤖",
+      "title": "AI & Automation",
+      "description": "Practical Python, OCR, and LLM workflows that turn repetitive business processes into reliable pipelines.",
+      "features": [
+        "OCR and document parsing",
+        "LLM workflow automation",
+        "Fine-tuning and prompt engineering",
+        "Web scraping and scheduled jobs"
+      ]
+    },
+    {
+      "id": "03",
+      "icon": "⚙️",
+      "title": "Data Engineering",
+      "description": "High-volume ETL, database consolidation, and performance work for complex operational datasets.",
+      "features": [
+        "ETL pipeline design",
+        "Database architecture",
+        "Query optimization",
+        "Data and API integrations"
+      ]
+    }
+  ],
+  "certificates": [
+    {
+      "name": "Data Science with Python",
+      "issuer": "Batweb Group of Companies"
+    },
+    {
+      "name": "Data Analytics Job Simulation",
+      "issuer": "Deloitte"
+    }
+  ],
+  "languages": ["English", "Hindi", "Gujarati"],
+  "interests": ["Podcasting", "Group discussions", "Vlogging", "Technical collaboration"],
+  "creatorProfiles": [
+    {
+      "id": "talk-with-darshan-youtube",
+      "platform": "YouTube",
+      "name": "Talk With Darshan",
+      "handle": "@talkwith_darshan",
+      "focus": "Podcasts and group discussions",
+      "url": "https://www.youtube.com/@talkwith_darshan",
+      "color": "bg-[#ff6b6b]"
+    },
+    {
+      "id": "darsh-vlogz-youtube",
+      "platform": "YouTube",
+      "name": "The Darsh Vlogz",
+      "handle": "@thedarshvlogz",
+      "focus": "Personal vlogs and experiences",
+      "url": "https://www.youtube.com/@thedarshvlogz",
+      "color": "bg-[#facc15]"
+    },
+    {
+      "id": "talk-with-darshan-instagram",
+      "platform": "Instagram",
+      "name": "Talk With Darshan",
+      "handle": "@talkwithdarshan",
+      "focus": "Podcast clips and discussion highlights",
+      "url": "https://www.instagram.com/talkwithdarshan/",
+      "color": "bg-[#4ecdc4]"
+    },
+    {
+      "id": "darsh-vlogs-instagram",
+      "platform": "Instagram",
+      "name": "The Darsh Vlogs",
+      "handle": "@thedarshvlogs",
+      "focus": "Vlogging updates and short-form moments",
+      "url": "https://www.instagram.com/thedarshvlogs/",
+      "color": "bg-white"
+    }
+  ]
+}
