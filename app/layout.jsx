@@ -3,8 +3,17 @@ import "./globals.css";
 import Navbar from "./components/Navbar";
 import { getBaseUrl, personJsonLd, siteConfig, websiteJsonLd } from "./seo";
 
-const bricolage = Bricolage_Grotesque({ subsets: ["latin"], variable: "--font-heading", display: "swap" });
-const spaceMono = Space_Mono({ subsets: ["latin"], weight: ["400", "700"], variable: "--font-body", display: "swap" });
+const bricolage = Bricolage_Grotesque({
+  subsets: ["latin"],
+  variable: "--font-heading",
+  display: "swap",
+});
+const spaceMono = Space_Mono({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+  variable: "--font-body",
+  display: "swap",
+});
 
 export default function RootLayout({ children }) {
   const schemas = [personJsonLd(), websiteJsonLd()];
@@ -14,11 +23,17 @@ export default function RootLayout({ children }) {
       <head>
         <link rel="icon" href="/ds.png" />
       </head>
-      <body className={`${bricolage.variable} ${spaceMono.variable} antialiased`}>
+      <body
+        className={`${bricolage.variable} ${spaceMono.variable} antialiased`}
+      >
         <Navbar />
         {children}
         {schemas.map((schema) => (
-          <script key={schema["@type"]} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
+          <script
+            key={schema["@type"]}
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+          />
         ))}
       </body>
     </html>
@@ -42,11 +57,35 @@ export const metadata = {
     title: siteConfig.title,
     description: siteConfig.description,
     siteName: siteConfig.title,
-    images: [{ url: siteConfig.profileImage, alt: `${siteConfig.name} - Full-Stack, Python & AI Developer` }]
+    images: [
+      {
+        url: siteConfig.profileImage,
+        alt: `${siteConfig.name} - Full-Stack, Python & AI Developer`,
+      },
+    ],
   },
-  twitter: { card: "summary_large_image", title: siteConfig.title, description: siteConfig.description, images: [siteConfig.profileImage] },
-  robots: { index: true, follow: true, googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1, "max-video-preview": -1 } },
-  category: "technology"
+  twitter: {
+    card: "summary_large_image",
+    title: siteConfig.title,
+    description: siteConfig.description,
+    images: [siteConfig.profileImage],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
+  category: "technology",
 };
 
-export const viewport = { width: "device-width", initialScale: 1, themeColor: "#fefbed" };
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  themeColor: "#fefbed",
+};
