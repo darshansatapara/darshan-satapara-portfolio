@@ -195,7 +195,7 @@
         "React.js",
         "Node.js",
         "Express.js",
-        "MongoDB",
+        "MySQL",
         "SaaS Architecture"
       ],
       "demo": "https://www.instantdukaan.com/",
@@ -208,7 +208,7 @@
       "title": "Blutec Ping",
       "category": "WHATSAPP | BACKEND",
       "description": "Optimized backend workflows for a bulk WhatsApp messaging service, improving enterprise message-delivery speed.Integrated the WhatsApp API for high-volume queues and streamlined API responses and database queries. Streamlined API response times and database queries, enabling local businesses to execute largescale marketing broadcasts efficiently.",
-      "tech": ["Node.js", "Express.js", "WhatsApp API", "MongoDB"],
+      "tech": ["Node.js", "Express.js", "WhatsApp API", "MySQL"],
       "demo": "https://ping.blutec.ai/",
       "code": null,
       "resumeVariants": ["mixed", "data-ai"],
