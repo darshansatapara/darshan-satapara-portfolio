@@ -30,9 +30,11 @@ export default function Experience() {
                 <li key={highlight} className="flex gap-3 font-medium leading-relaxed"><span className="font-black">→</span><span>{highlight}</span></li>
               ))}
             </ul>
-            <Link href={job.url} target="_blank" rel="noopener noreferrer" className="inline-block px-6 py-3 bg-white border-2 border-black font-bold uppercase hover:bg-black hover:text-white transition-colors shadow-[4px_4px_0_#000]">
-              Visit {job.company} ↗
-            </Link>
+            {job.url ? (
+              <Link href={job.url} target="_blank" rel="noopener noreferrer" className="inline-block px-6 py-3 bg-white border-2 border-black font-bold uppercase hover:bg-black hover:text-white transition-colors shadow-[4px_4px_0_#000]">
+                Visit {job.company} ↗
+              </Link>
+            ) : null}
           </div>
           {index < portfolio.experience.length - 1 && <div className="lg:col-span-12 h-3 bg-[#facc15] border-t-4 border-black" />}
         </div>

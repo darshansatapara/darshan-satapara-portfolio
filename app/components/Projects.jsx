@@ -1,7 +1,12 @@
 import Link from "next/link";
+import Image from "next/image";
 import portfolio from "../data/portfolio.json";
 
 export default function Projects() {
+  const byProjectNumber = (first, second) => Number(first.id) - Number(second.id);
+  const resumeProjects = portfolio.projects.filter((project) => project.featuredOnResume).sort(byProjectNumber);
+  const otherProjects = portfolio.projects.filter((project) => !project.featuredOnResume).sort(byProjectNumber);
+
   return (
     <section id="work" className="w-full mx-auto border-x-4 border-b-4 border-black bg-white text-black font-mono border-t-0">
       <div className="bg-black text-white hover:bg-white hover:text-black p-6 md:p-8 border-b-4 border-black flex flex-col md:flex-row justify-between items-center gap-4 transition-colors">
@@ -11,12 +16,45 @@ export default function Projects() {
         </a>
       </div>
 
+      <div className="bg-[#4ecdc4] border-b-4 border-black px-6 py-4">
+        <h3 className="text-xl font-black uppercase">Projects Featured on My Resume</h3>
+      </div>
       <div className="grid grid-cols-1 md:grid-cols-2">
-        {portfolio.projects.map((project, index) => (
+        {resumeProjects.map((project, index) => (
           <article key={project.id} className={`group relative p-8 md:p-12 border-b-4 border-black ${index % 2 === 0 ? "md:border-r-4" : ""} hover:bg-[#fffdf5] transition-colors`}>
             <div className="flex justify-between items-start mb-6">
               <span className="text-5xl font-black opacity-10 group-hover:opacity-100 transition-opacity">{project.id}</span>
-              <span className={`text-[10px] font-bold uppercase tracking-widest border-2 border-black px-2 py-1 ${project.color}`}>{project.category}</span>
+              <div className="flex items-start gap-2">
+                {project.icon && <Image src={project.icon} alt={`${project.title} icon`} width={36} height={36} className="h-9 w-9 border-2 border-black bg-white object-contain" />}
+                <span className={`text-[10px] font-bold uppercase tracking-widest border-2 border-black px-2 py-1 ${project.color}`}>{project.category}</span>
+              </div>
+            </div>
+            <h3 className="text-3xl font-black uppercase mb-4 leading-none group-hover:translate-x-2 transition-transform">{project.title}</h3>
+            <p className="font-medium text-sm leading-relaxed opacity-80 mb-6">{project.description}</p>
+            <div className="flex flex-wrap gap-2 mb-8">
+              {project.tech.map((tech) => <span key={tech} className="text-xs font-bold bg-gray-100 border border-black px-2 py-1">#{tech}</span>)}
+            </div>
+            <div className="flex gap-4">
+              {project.demo && <Link href={project.demo} target="_blank" rel="noopener noreferrer" className="flex-1 bg-black text-white text-center py-3 font-bold border-2 border-black hover:bg-transparent hover:text-black shadow-[4px_4px_0_#000] transition-all">VIEW</Link>}
+              {project.code && <Link href={project.code} target="_blank" rel="noopener noreferrer" className="flex-1 bg-white text-black text-center py-3 font-bold border-2 border-black hover:bg-[#ff6b6b] hover:text-white shadow-[4px_4px_0_#000] transition-all">CODE</Link>}
+              {!project.demo && !project.code && <span className="text-xs font-bold uppercase border-2 border-black bg-gray-100 px-4 py-3">Internal project</span>}
+            </div>
+          </article>
+        ))}
+      </div>
+
+      <div className="bg-[#facc15] border-b-4 border-black px-6 py-4">
+        <h3 className="text-xl font-black uppercase">More Projects</h3>
+      </div>
+      <div className="grid grid-cols-1 md:grid-cols-2">
+        {otherProjects.map((project, index) => (
+          <article key={project.id} className={`group relative p-8 md:p-12 border-b-4 border-black ${index % 2 === 0 ? "md:border-r-4" : ""} hover:bg-[#fffdf5] transition-colors`}>
+            <div className="flex justify-between items-start mb-6">
+              <span className="text-5xl font-black opacity-10 group-hover:opacity-100 transition-opacity">{project.id}</span>
+              <div className="flex items-start gap-2">
+                {project.icon && <Image src={project.icon} alt={`${project.title} icon`} width={36} height={36} className="h-9 w-9 border-2 border-black bg-white object-contain" />}
+                <span className={`text-[10px] font-bold uppercase tracking-widest border-2 border-black px-2 py-1 ${project.color}`}>{project.category}</span>
+              </div>
             </div>
             <h3 className="text-3xl font-black uppercase mb-4 leading-none group-hover:translate-x-2 transition-transform">{project.title}</h3>
             <p className="font-medium text-sm leading-relaxed opacity-80 mb-6">{project.description}</p>

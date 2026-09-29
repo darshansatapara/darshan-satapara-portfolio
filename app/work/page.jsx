@@ -1,9 +1,13 @@
 import Link from "next/link";
+import Image from "next/image";
 import portfolio from "../data/portfolio.json";
 import { breadcrumbJsonLd, projectsJsonLd } from "../seo";
 import ClientProjects from "../components/ClientProjects";
 
 export default function Work() {
+  const byProjectNumber = (first, second) => Number(first.id) - Number(second.id);
+  const resumeProjects = portfolio.projects.filter((project) => project.featuredOnResume).sort(byProjectNumber);
+  const otherProjects = portfolio.projects.filter((project) => !project.featuredOnResume).sort(byProjectNumber);
   const schemas = [
     projectsJsonLd(),
     breadcrumbJsonLd([
@@ -41,8 +45,9 @@ export default function Work() {
         </a>
       </div>
 
+      <h2 className="mb-6 text-2xl font-black uppercase">Projects Featured on My Resume</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        {portfolio.projects.map((project) => (
+        {resumeProjects.map((project) => (
           <article
             key={project.id}
             className="border-4 border-black bg-white p-8 shadow-[8px_8px_0_#000] hover:-translate-y-1 transition-transform"
@@ -51,11 +56,12 @@ export default function Work() {
               <span className="text-5xl font-black opacity-15">
                 {project.id}
               </span>
-              <span
-                className={`${project.color} border-2 border-black px-3 py-1 h-fit text-xs font-bold uppercase`}
-              >
-                {project.category}
-              </span>
+              <div className="flex items-start gap-2">
+                {project.icon && <Image src={project.icon} alt={`${project.title} icon`} width={40} height={40} className="h-10 w-10 border-2 border-black bg-white object-contain" />}
+                <span className={`${project.color} border-2 border-black px-3 py-1 h-fit text-xs font-bold uppercase`}>
+                  {project.category}
+                </span>
+              </div>
             </div>
             <h2 className="text-3xl font-black uppercase mb-5">
               {project.title}
@@ -99,6 +105,38 @@ export default function Work() {
                   Internal project
                 </span>
               )}
+            </div>
+          </article>
+        ))}
+      </div>
+
+      <h2 className="mt-16 mb-6 text-2xl font-black uppercase">More Projects</h2>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {otherProjects.map((project) => (
+          <article
+            key={project.id}
+            className="border-4 border-black bg-white p-8 shadow-[8px_8px_0_#000] hover:-translate-y-1 transition-transform"
+          >
+            <div className="flex justify-between gap-4 mb-6">
+              <span className="text-5xl font-black opacity-15">{project.id}</span>
+              <div className="flex items-start gap-2">
+                {project.icon && <Image src={project.icon} alt={`${project.title} icon`} width={40} height={40} className="h-10 w-10 border-2 border-black bg-white object-contain" />}
+                <span className={`${project.color} border-2 border-black px-3 py-1 h-fit text-xs font-bold uppercase`}>
+                  {project.category}
+                </span>
+              </div>
+            </div>
+            <h2 className="text-3xl font-black uppercase mb-5">{project.title}</h2>
+            <p className="font-medium leading-relaxed mb-6">{project.description}</p>
+            <div className="flex flex-wrap gap-2 mb-8">
+              {project.tech.map((tech) => (
+                <span key={tech} className="border border-black bg-gray-100 px-2 py-1 text-xs font-bold">#{tech}</span>
+              ))}
+            </div>
+            <div className="flex gap-4">
+              {project.demo && <Link href={project.demo} target="_blank" rel="noopener noreferrer" className="bg-black text-white border-2 border-black px-5 py-3 font-bold uppercase">View â†—</Link>}
+              {project.code && <Link href={project.code} target="_blank" rel="noopener noreferrer" className="bg-[#4ecdc4] border-2 border-black px-5 py-3 font-bold uppercase">Code â†—</Link>}
+              {!project.demo && !project.code && <span className="border-2 border-black bg-gray-100 px-5 py-3 font-bold uppercase">Internal project</span>}
             </div>
           </article>
         ))}

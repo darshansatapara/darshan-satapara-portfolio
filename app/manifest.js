@@ -10,7 +10,7 @@ export default function manifest() {
     lang: "en-IN",
     icons: [
       {
-        src: "/ds.png",
+        src: "/darshan_logo.png",
         sizes: "any",
         type: "image/png",
       },

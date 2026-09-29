@@ -1,0 +1,8 @@
+<svg width="240" height="240" viewBox="0 0 240 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="240" height="240" fill="#F5F0E6"/>
+  <rect x="14" y="14" width="212" height="212" rx="24" fill="#111111" stroke="#D4AF37" stroke-width="6"/>
+  <path d="M74 66H52V174H74V66ZM90 174H112V66H90V174ZM132 66H110V174H132V66ZM148 66H170V174H148V66Z" fill="#F5F0E6"/>
+  <path d="M58 62L94 62L94 152L58 152V62Z" fill="#D4AF37" opacity="0.9"/>
+  <path d="M146 62L182 62L182 152L146 152V62Z" fill="#D4AF37" opacity="0.9"/>
+  <text x="120" y="188" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" letter-spacing="3" fill="#D4AF37">SONI &amp; SONI</text>
+</svg>

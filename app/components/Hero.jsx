@@ -77,23 +77,25 @@ export default function Hero() {
         </div>
       </div>
 
-      <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-3 min-h-25">
-        {portfolio.resumes.map((resume) => (
-          <a
-            key={resume.id}
-            href={resume.file}
-            download
-            className="bg-white hover:bg-black hover:text-white border-b-4 sm:border-b-0 sm:border-r-4 border-black p-5 text-sm md:text-base font-bold flex items-center justify-center text-center transition-all"
+      <div className="lg:col-span-7 w-full min-h-25">
+        <div className="grid grid-cols-1 sm:grid-cols-[minmax(0,1fr)_auto] h-full w-full">
+          {portfolio.resumes.map((resume) => (
+            <a
+              key={resume.id}
+              href={resume.file}
+              download
+              className="bg-white hover:bg-black hover:text-white border-b-4 sm:border-b-0 sm:border-r-4 border-black p-5 text-base md:text-xl font-black uppercase tracking-[0.12em] flex items-center justify-center text-center transition-all min-h-[88px] shadow-[4px_4px_0_#000] hover:shadow-[6px_6px_0_#000]"
+            >
+              {resume.shortLabel.toUpperCase()} <span className="text-2xl leading-none">↓</span>
+            </a>
+          ))}
+          <Link
+            href="/contact"
+            className="bg-[#ff6b6b] hover:bg-[#ff4747] text-white p-5 text-lg font-bold flex items-center justify-center gap-2 transition-all min-h-[88px] w-full sm:w-auto justify-self-end"
           >
-            {resume.shortLabel.toUpperCase()} ↓
-          </a>
-        ))}
-        <Link
-          href="/contact"
-          className="bg-[#ff6b6b] hover:bg-[#ff4747] text-white p-5 text-lg font-bold flex items-center justify-center gap-2 transition-all"
-        >
-          LET&apos;S TALK →
-        </Link>
+            LET&apos;S TALK →
+          </Link>
+        </div>
       </div>
     </section>
   );

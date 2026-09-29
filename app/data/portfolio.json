@@ -126,10 +126,25 @@
   "experience": [
     {
       "id": "01",
+      "role": "Full-Stack Developer",
+      "company": "Soni & Soni Advocate & Attorney",
+      "period": "Jul 2026 - Present",
+      "current": true,
+      "url": null,
+      "logo": "/soni-and-soni.webp",
+      "accent": "#facc15",
+      "highlights": [
+        "Developed the firm's website and lead-management system, along with automation workflows for internal operations and communication.",
+        "Added lead-generation and enquiry workflows so potential clients can connect with the firm directly.",
+        "Automated WhatsApp and email alerts to notify the appropriate team members about upcoming hearings."
+      ]
+    },
+    {
+      "id": "02",
       "role": "Backend & Python Developer Intern",
       "company": "7Span",
       "period": "Jan 2026 - Jul 2026",
-      "current": true,
+      "current": false,
       "url": "https://7span.com/",
       "logo": "/7span.png",
       "accent": "#4ecdc4",
@@ -140,7 +155,7 @@
       ]
     },
     {
-      "id": "02",
+      "id": "03",
       "role": "Full-Stack Developer Intern",
       "company": "Instabizweb",
       "period": "Sep 2025 - Dec 2025",
@@ -155,7 +170,7 @@
       ]
     },
     {
-      "id": "03",
+      "id": "04",
       "role": "Full-Stack Developer Intern",
       "company": "Egniol Services Private Limited",
       "period": "May 2025 - July 2025",
@@ -170,7 +185,7 @@
       ]
     },
     {
-      "id": "04",
+      "id": "05",
       "role": "Full-Stack Developer Intern",
       "company": "Webseeder Technologies Private Limited",
       "period": "Feb 2025 - Apr 2025",
@@ -187,10 +202,104 @@
   ],
   "projects": [
     {
-      "id": "01",
+      "id": "08",
+      "title": "AI-Powered OCR Pipeline",
+      "category": "AI | DOCUMENT AUTOMATION",
+      "description": "An automated extraction pipeline that converts unstructured PDF brochures and daily itineraries into database-ready JSON. It combines OpenAI, Mistral AI, AWS, Azure, MinerU, and Mistral OCR approaches, then syncs results to Directus and reduces manual entry by more than 80%.",
+      "tech": [
+        "Node.js",
+        "Python",
+        "OpenAI API",
+        "Mistral AI",
+        "Directus",
+        "OCR"
+      ],
+      "demo": "https://github.com/darshansatapara/OCR",
+      "code": "https://github.com/darshansatapara/OCR",
+      "resumeVariants": ["mixed", "data-ai"],
+      "featuredOnResume": true,
+      "color": "bg-[#4ecdc4]"
+    },
+    {
+      "id": "07",
+      "title": "Mahendra Ke Namkeen",
+      "category": "FULL STACK | PAYMENTS",
+      "description": "A B2C eCommerce platform with an optimized storefront and dedicated admin panel. Integrated Razorpay, secure authentication, live order management, user data, and platform analytics to support real-world revenue.",
+      "tech": ["Next.js", "React.js", "Node.js", "MongoDB", "Razorpay API"],
+      "demo": "https://mahendrakenamkeen.com/",
+      "code": null,
+      "resumeVariants": ["mixed", "data-ai"],
+      "featuredOnResume": true,
+      "color": "bg-[#ff6b6b]"
+    },
+    {
+      "id": "06",
+      "title": "Vault",
+      "category": "SECURITY | SECURE STORAGE",
+      "description": "A secure-storage application built to protect sensitive data with passkeys, authenticator-based verification, secure sharing, and Rust-based security components.",
+      "tech": [
+        "Rust",
+        "Node.js",
+        "React.js",
+        "Passkeys",
+        "Authenticator",
+        "Secure Storage"
+      ],
+      "demo": null,
+      "code": null,
+      "resumeVariants": ["mixed", "data-ai"],
+      "featuredOnResume": true,
+      "color": "bg-[#facc15]"
+    },
+    {
+      "id": "05",
+      "title": "Hearing Alert",
+      "category": "AUTOMATION | LEGAL TECH",
+      "description": "An automated hearing-notification workflow that sends WhatsApp and email alerts to the appropriate team members about upcoming hearings.",
+      "tech": [
+        "Python",
+        "Node.js",
+        "React.js",
+        "Email APIs",
+        "WhatsApp API",
+        "Automation"
+      ],
+      "demo": null,
+      "code": null,
+      "resumeVariants": ["mixed", "data-ai"],
+      "featuredOnResume": true,
+      "color": "bg-white"
+    },
+    {
+      "id": "04",
+      "title": "Soni And Soni Website",
+      "category": "FULL STACK | LEGAL TECH",
+      "description": "A law-firm website and lead-management system with enquiry workflows that help potential clients connect with the firm directly.",
+      "tech": ["Next.js", "React.js", "Node.js", "Database", "Admin Panel"],
+      "demo": null,
+      "code": null,
+      "resumeVariants": ["mixed", "data-ai"],
+      "featuredOnResume": true,
+      "icon": "/soni-and-soni.webp",
+      "color": "bg-[#4ecdc4]"
+    },
+    {
+      "id": "02",
+      "title": "Security & Activity Monitoring System",
+      "category": "SECURITY | MONITORING",
+      "description": "A system-monitoring platform with 15-minute screenshots, wake and sleep tracking, plus a central admin panel for activity oversight and analytics.",
+      "tech": ["Rust", "Python", "React.js", "Node.js", "System APIs"],
+      "demo": null,
+      "code": null,
+      "resumeVariants": ["mixed", "data-ai"],
+      "featuredOnResume": true,
+      "color": "bg-[#ff6b6b]"
+    },
+    {
+      "id": "03",
       "title": "Instant Dukaan",
       "category": "SAAS | ECOMMERCE",
-      "description": "ACollaborated on a scalable SaaS platform empowering local retail shops to rapidly deploy customized online eCommerce storefronts.Engineered responsive frontend components and robust backend APIs, accelerating the merchant onboarding process. Implemented secure user authentication and dynamic inventory management features to support multi-tenant store operations.",
+      "description": "Collaborated on a scalable SaaS platform empowering local retail shops to rapidly deploy customized online eCommerce storefronts. Engineered responsive frontend components and robust backend APIs, accelerating merchant onboarding and supporting multi-tenant store operations.",
       "tech": [
         "React.js",
         "Node.js",
@@ -201,21 +310,23 @@
       "demo": "https://www.instantdukaan.com/",
       "code": null,
       "resumeVariants": ["mixed", "data-ai"],
+      "featuredOnResume": true,
       "color": "bg-[#4ecdc4]"
     },
     {
-      "id": "02",
+      "id": "01",
       "title": "Blutec Ping",
       "category": "WHATSAPP | BACKEND",
-      "description": "Optimized backend workflows for a bulk WhatsApp messaging service, improving enterprise message-delivery speed.Integrated the WhatsApp API for high-volume queues and streamlined API responses and database queries. Streamlined API response times and database queries, enabling local businesses to execute largescale marketing broadcasts efficiently.",
-      "tech": ["Node.js", "Express.js", "WhatsApp API", "MySQL"],
+      "description": "Optimized backend workflows for a bulk WhatsApp messaging service. Integrated the WhatsApp API for high-volume message queues and streamlined database queries so businesses can run large-scale marketing broadcasts efficiently.",
+      "tech": ["Node.js", "Express.js", "WhatsApp API", "MongoDB"],
       "demo": "https://ping.blutec.ai/",
       "code": null,
       "resumeVariants": ["mixed", "data-ai"],
+      "featuredOnResume": true,
       "color": "bg-white"
     },
     {
-      "id": "03",
+      "id": "09",
       "title": "Scout",
       "category": "LEAD GENERATION | MAPS",
       "description": "A Google Maps-based B2B lead-generation tool that streamlines automated business-data extraction, prospect discovery, and client outreach workflows. Assisted in developing an automated data extraction tool utilizing Google Maps to streamline B2B lead generation and client discovery.",
@@ -231,36 +342,7 @@
       "color": "bg-[#facc15]"
     },
     {
-      "id": "04",
-      "title": "Mahendra Ke Namkeen",
-      "category": "FULL STACK | PAYMENTS",
-      "description": "A B2C eCommerce platform with an optimized storefront and dedicated admin panel. Integrated Razorpay, secure authentication, live order management, user data, and platform analytics to support real-world revenue.Engineered a powerful backend to efficiently manage live orders, user data, and platform analytics, driving real-world revenue.",
-      "tech": ["Next.js", "React.js", "Node.js", "MongoDB", "Razorpay API"],
-      "demo": "https://mahendrakenamkeen.com/",
-      "code": null,
-      "resumeVariants": ["mixed", "data-ai"],
-      "color": "bg-[#ff6b6b]"
-    },
-    {
-      "id": "05",
-      "title": "AI-Powered OCR Pipeline",
-      "category": "AI | DOCUMENT AUTOMATION",
-      "description": "An automated extraction pipeline that converts unstructured PDF brochures into database-ready JSON. It combines OpenAI, Mistral AI, AWS, Azure, MinerU, and Mistral OCR approaches, then syncs results to Directus and reduces manual entry by more than 80%.",
-      "tech": [
-        "Node.js",
-        "Python",
-        "OpenAI API",
-        "Mistral AI",
-        "Directus",
-        "OCR"
-      ],
-      "demo": "https://github.com/darshansatapara/OCR",
-      "code": "https://github.com/darshansatapara/OCR",
-      "resumeVariants": ["mixed", "data-ai"],
-      "color": "bg-[#4ecdc4]"
-    },
-    {
-      "id": "06",
+      "id": "10",
       "title": "Enterprise ETL & Denormalization Pipeline",
       "category": "DATA | ARCHITECTURE",
       "description": "Merged 30+ tables across 8-10 databases containing over 15 million records into a single source of truth. A Python ETL continuously synchronizes daily inserts and improved query retrieval speed by approximately 60%.",
@@ -271,7 +353,7 @@
       "color": "bg-[#facc15]"
     },
     {
-      "id": "07",
+      "id": "11",
       "title": "Multi-Model Content Automation",
       "category": "LLM | GEO CONTENT",
       "description": "An automated task-handoff pipeline orchestrating Storyteller, Architect, and Editor LLM roles. The framework enforces Generative Engine Optimization and human-touch formatting while removing manual prompting bottlenecks.",
@@ -282,7 +364,7 @@
       "color": "bg-[#ff6b6b]"
     },
     {
-      "id": "08",
+      "id": "12",
       "title": "Inshorts News Scraper",
       "category": "PYTHON | AUTOMATION",
       "description": "A Python automation that scrapes daily trending, domain-specific news from Inshorts and organizes it through the Google Sheets API every morning, saving the content team more than two research hours per day.",
@@ -293,7 +375,7 @@
       "color": "bg-white"
     },
     {
-      "id": "09",
+      "id": "13",
       "title": "Generative AI Fine-Tuning Pipeline",
       "category": "LLM | FINE-TUNING",
       "description": "Fine-tuned Meta Llama 3.1 8B with Unsloth and QLoRA on dual T4 GPUs. Built a data-ingestion pipeline to clean and structure a golden dataset of more than 40,000 MongoDB news articles for specialized content generation.",
@@ -311,7 +393,7 @@
       "color": "bg-[#4ecdc4]"
     },
     {
-      "id": "10",
+      "id": "14",
       "title": "X AI Automation Bot",
       "category": "AI | SOCIAL AUTOMATION",
       "description": "A Python pipeline using free-tier LLM APIs to generate context-aware content and autonomously publish scheduled posts to X, increasing posting frequency and eliminating manual social-media management.",
@@ -322,7 +404,7 @@
       "color": "bg-[#facc15]"
     },
     {
-      "id": "11",
+      "id": "15",
       "title": "Task Management System",
       "category": "MERN | TEAM WORKFLOWS",
       "description": "A co-developed MERN-stack task-management system designed to isolate and streamline project workflows across multiple teams.",
@@ -333,7 +415,7 @@
       "color": "bg-white"
     },
     {
-      "id": "12",
+      "id": "16",
       "title": "Developer Portfolio",
       "category": "NEXT.JS | PERSONAL BRAND",
       "description": "A responsive personal portfolio presenting my development, data-engineering, and AI work through a structured, JSON-driven content system.",
