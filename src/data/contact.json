@@ -1,0 +1,19 @@
+{
+  "meta": {
+    "path": "/contact",
+    "title": "Contact",
+    "description": "Get in touch with Darshan Satapara for full-stack, Python and AI automation opportunities. Based in Ahmedabad, India — available for roles and collaborations.",
+    "keywords": ["contact Darshan Satapara", "hire full-stack developer", "AI developer Ahmedabad", "freelance Python developer"]
+  },
+  "sections": {
+    "intro": {
+      "status": "Available for opportunities",
+      "heading": "Get in touch",
+      "sub": "Open to full-stack and AI automation roles and collaborations. Click to copy or reach me directly."
+    },
+    "cards": [
+      { "label": "Direct contact", "note": "Email — click to copy or send directly", "kind": "email" },
+      { "label": "Direct line", "note": "Call or WhatsApp", "kind": "phone" }
+    ]
+  }
+}

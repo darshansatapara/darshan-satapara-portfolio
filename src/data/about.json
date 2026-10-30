@@ -1,0 +1,45 @@
+{
+  "meta": {
+    "path": "/about",
+    "title": "About Me",
+    "description": "About Darshan Satapara — Computer Engineering student and full-stack engineer working across React, Next.js, Node.js, Python, data pipelines, OCR and LLM automation. Podcaster and group-discussion host.",
+    "keywords": ["About Darshan Satapara", "Computer Engineering student", "full-stack engineer", "podcaster", "Silver Oak University"]
+  },
+  "sections": {
+    "intro": {
+      "label": "About me",
+      "bio": "I am a Computer Engineering student and full-stack engineer who enjoys turning complex workflows into reliable products. My work spans React and Next.js interfaces, Node.js and Python backends, high-volume database pipelines, OCR systems, and practical LLM automation. I am also a passionate podcaster and group-discussion host, bringing strong communication and a collaborative mindset to fast-paced teams."
+    },
+    "education": {
+      "degree": "B.Tech in Computer Engineering",
+      "institution": "Silver Oak University",
+      "period": "2022 — 2026",
+      "cgpa": "9.30"
+    },
+    "certificates": [
+      { "name": "Data Science with Python", "issuer": "Batweb Group of Companies" },
+      { "name": "Data Analytics Job Simulation", "issuer": "Deloitte" }
+    ],
+    "languages": ["English", "Hindi", "Gujarati"],
+    "toolkit": [
+      { "group": "Programming Languages", "items": ["C++", "Python", "JavaScript", "Rust"] },
+      { "group": "Backend Development", "items": ["Node.js", "Express.js", "FastAPI", "Directus", "Supabase"] },
+      { "group": "Frontend Development", "items": ["React.js", "Next.js", "Streamlit", "HTML", "CSS", "Tailwind CSS", "Bootstrap"] },
+      { "group": "Databases", "items": ["MySQL", "MongoDB", "PostgreSQL", "Redis"] },
+      { "group": "Version Control & Collaboration", "items": ["Git", "GitHub", "GitHub Actions"] },
+      { "group": "Core Skills", "items": ["Problem Solving", "RESTful API Design", "Database Design", "Leadership"] },
+      { "group": "AI, Data & Analytics", "items": ["OpenAI API", "Mistral AI", "OCR", "PyTorch", "Pandas", "NumPy", "Seaborn", "Matplotlib", "Power BI", "LLM Fine-Tuning", "QLoRA"] },
+      { "group": "Cloud, Tools & APIs", "items": ["AWS S3", "Google Sheets API", "Google Cloud", "WhatsApp API", "Twilio", "UltraMsg", "Hostinger VPS", "Nginx"] }
+    ],
+    "beyondCode": {
+      "heading": "Podcasting, discussions & vlogging",
+      "intro": "I enjoy conversations as much as code. Through my channels, I host podcasts and group discussions, share ideas with people, and document personal experiences through vlogs.",
+      "channels": [
+        { "platform": "YouTube", "name": "Talk With Darshan", "handle": "@talkwith_darshan", "desc": "Podcasts and group discussions", "url": "https://www.youtube.com/@talkwith_darshan" },
+        { "platform": "YouTube", "name": "The Darsh Vlogz", "handle": "@thedarshvlogz", "desc": "Personal vlogs and experiences", "url": "https://www.youtube.com/@thedarshvlogz" },
+        { "platform": "Instagram", "name": "Talk With Darshan", "handle": "@talkwithdarshan", "desc": "Podcast clips and discussion highlights", "url": "https://www.instagram.com/talkwithdarshan/" },
+        { "platform": "Instagram", "name": "The Darsh Vlogs", "handle": "@thedarshvlogs", "desc": "Vlogging updates and short-form moments", "url": "https://www.instagram.com/thedarshvlogs/" }
+      ]
+    }
+  }
+}

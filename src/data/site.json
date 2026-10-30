@@ -1,0 +1,54 @@
+{
+  "name": "Darshan Satapara",
+  "firstName": "Darshan",
+  "lastName": "Satapara",
+  "role": "Full-Stack, Python & AI Developer",
+  "shortRole": "Full-Stack Dev & AI Automation",
+  "tagline": "Full-stack engineer building scalable web apps, high-volume data pipelines and AI-powered automation.",
+  "url": "https://darshansatapara.techorbitra.com",
+  "year": "2026",
+  "status": "Available for opportunities",
+  "location": {
+    "city": "Ahmedabad",
+    "region": "Gujarat",
+    "country": "India",
+    "full": "Ahmedabad, Gujarat, India"
+  },
+  "contact": {
+    "email": "darshansatapara286@gmail.com",
+    "phone": "+91 72038 35504",
+    "phoneHref": "tel:+917203835504"
+  },
+  "socials": [
+    { "label": "GitHub", "handle": "darshansatapara", "url": "https://github.com/darshansatapara" },
+    { "label": "LinkedIn", "handle": "darshansatapara", "url": "https://linkedin.com/in/darshansatapara/" },
+    { "label": "LeetCode", "handle": "darshansatapara", "url": "https://leetcode.com/u/darshansatapara" }
+  ],
+  "resumes": [
+    { "label": "Resume", "file": "/darshan_resume_m.pdf" }
+  ],
+  "nav": [
+    { "label": "Home", "href": "/" },
+    { "label": "About", "href": "/about" },
+    { "label": "Services", "href": "/services" },
+    { "label": "Work", "href": "/work" },
+    { "label": "Contact", "href": "/contact" }
+  ],
+  "seo": {
+    "titleTemplate": "%s | Darshan Satapara",
+    "defaultTitle": "Darshan Satapara — Full-Stack, Python & AI Developer",
+    "description": "Full-stack engineer building scalable web applications, high-volume data pipelines and AI-powered automation with React, Node.js and Python.",
+    "keywords": [
+      "Darshan Satapara",
+      "Full-Stack Developer",
+      "Python Developer",
+      "AI Automation Developer",
+      "Next.js Developer",
+      "Node.js Developer",
+      "Data Engineering",
+      "OCR Automation",
+      "LLM Workflows",
+      "Ahmedabad Developer"
+    ]
+  }
+}

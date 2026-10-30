@@ -1,0 +1,38 @@
+{
+  "meta": {
+    "path": "/services",
+    "title": "Services",
+    "description": "Full-stack development, AI & automation and data engineering services by Darshan Satapara — React/Next.js apps, Node.js/Python APIs, OCR, LLM workflows, ETL pipelines and database optimization.",
+    "keywords": ["full-stack development services", "AI automation services", "data engineering", "OCR automation", "ETL pipelines", "freelance developer"]
+  },
+  "sections": {
+    "intro": {
+      "label": "What I build",
+      "heading": "Full-stack, AI & data systems",
+      "sub": "React and Next.js applications, Node.js and Python APIs, generative AI automation, OCR document processing, ETL pipelines and database optimization."
+    },
+    "services": [
+      {
+        "no": "01",
+        "icon": "code",
+        "title": "Full-Stack Development",
+        "desc": "Scalable React and Next.js products backed by secure Node.js APIs and well-designed databases.",
+        "features": ["Responsive web applications", "REST API development", "Authentication and payments", "Admin panels and analytics"]
+      },
+      {
+        "no": "02",
+        "icon": "bot",
+        "title": "AI & Automation",
+        "desc": "Practical Python, OCR and LLM workflows that turn repetitive business processes into reliable pipelines.",
+        "features": ["OCR and document parsing", "LLM workflow automation", "Fine-tuning and prompt engineering", "Web scraping and scheduled jobs"]
+      },
+      {
+        "no": "03",
+        "icon": "gear",
+        "title": "Data Engineering",
+        "desc": "High-volume ETL, database consolidation and performance work for complex operational datasets.",
+        "features": ["ETL pipeline design", "Database architecture", "Query optimization", "Data and API integrations"]
+      }
+    ]
+  }
+}

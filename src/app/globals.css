@@ -1,0 +1,306 @@
+@import "tailwindcss";
+
+/* ===== Brutalist mono design system ===== */
+@theme inline {
+  --color-paper: #f2f0e9;
+  --color-ink: #0b0b0b;
+  --color-accent: #1f1fff;
+  --color-hl: #e7ff39;
+  --font-mono: var(--font-mono);
+  --font-display: var(--font-mono);
+}
+
+:root {
+  color-scheme: light;
+  --paper: #f2f0e9;
+  --paper-2: #e9e6dc;
+  --ink: #0b0b0b;
+  --bg: #f2f0e9;
+  --bg-2: #e9e6dc;
+  --fg: #0b0b0b;
+  --fg-dim: #46463f;
+  --fg-faint: #83837a;
+  --line: #0b0b0b;
+  --accent: #1f1fff;
+  --accent-2: #0000c2;
+  --hl: #e7ff39;
+
+  /* Neo-brutalist color set — bold flat blocks, always paired with black ink */
+  --c-blue: #2b50ff;
+  --c-sky: #4d8cff;
+  --c-coral: #ff5a3c;
+  --c-lime: #bdf23a;
+  --c-violet: #9a6bff;
+  --c-pink: #ff79c0;
+  --c-amber: #ffbf3c;
+}
+
+/* Inverted blocks: black bg, paper text/borders (relative to the theme) */
+.invert {
+  --bg: #0b0b0b;
+  --bg-2: #141414;
+  --fg: #f2f0e9;
+  --fg-dim: #b7b7ad;
+  --fg-faint: #76766d;
+  --line: #f2f0e9;
+}
+
+/* ===== Dark theme — flips the whole palette via tokens only ===== */
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --paper: #121212;
+  --paper-2: #1c1c1c;
+  --ink: #f2f0e9;
+  --bg: #0b0b0b;
+  --bg-2: #141414;
+  --fg: #f2f0e9;
+  --fg-dim: #b7b7ad;
+  --fg-faint: #76766d;
+  --line: #f2f0e9;
+  --accent: #4b4bff;
+  --accent-2: #2a2aff;
+}
+
+/* In dark mode the .invert blocks become the LIGHT panels (keep alternation) */
+:root[data-theme="dark"] .invert {
+  --paper: #f2f0e9;
+  --paper-2: #e9e6dc;
+  --ink: #0b0b0b;
+  --bg: #f2f0e9;
+  --bg-2: #e9e6dc;
+  --fg: #0b0b0b;
+  --fg-dim: #46463f;
+  --fg-faint: #83837a;
+  --line: #0b0b0b;
+  --accent: #1f1fff;
+  --accent-2: #0000c2;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-mono), ui-monospace, "Courier New", monospace;
+  overflow-x: hidden;
+}
+
+/* Fine paper grain over everything — tactile, not sterile. Very low opacity. */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 70;
+  pointer-events: none;
+  opacity: 0.04;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 120px 120px;
+}
+
+/* Brutalist: kill rounded corners everywhere */
+*,
+*::before,
+*::after {
+  border-radius: 0 !important;
+}
+
+::selection {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+/* Keyboard focus: hard brutalist ring, no soft glow */
+:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+}
+.invert :focus-visible {
+  outline-color: var(--hl);
+}
+
+/* Snappy scroll reveal — mechanical, not a soft fade.
+   Hiding is scoped under html.reveal-on, which JS adds only AFTER hydration,
+   so server HTML and the client's first render match (no hydration mismatch)
+   and content is never hidden when JS is off. */
+.reveal-on [data-reveal] {
+  opacity: 0;
+  transform: translateY(22px);
+  transition:
+    opacity 0.45s cubic-bezier(0.2, 0.9, 0.2, 1),
+    transform 0.45s cubic-bezier(0.2, 0.9, 0.2, 1);
+  transition-delay: calc(var(--i, 0) * 70ms);
+  will-change: opacity, transform;
+}
+.reveal-on [data-reveal].is-in {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal-on [data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  .brut-press {
+    transition: none !important;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+}
+::-webkit-scrollbar-track {
+  background: var(--paper-2);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--ink);
+  border: 3px solid var(--paper-2);
+}
+
+@layer utilities {
+  .font-display {
+    font-family: var(--font-mono), monospace;
+  }
+  .font-mono-x {
+    font-family: var(--font-mono), monospace;
+  }
+
+  /* Hard border + offset shadow (the brutalist signature) */
+  .brut {
+    border: 2px solid var(--line);
+    box-shadow: 6px 6px 0 0 var(--line);
+  }
+  .brut-sm {
+    border: 2px solid var(--line);
+    box-shadow: 4px 4px 0 0 var(--line);
+  }
+  .brut-flat {
+    border: 2px solid var(--line);
+  }
+  /* hover: press the block into the page */
+  .brut-press {
+    transition: transform 0.12s steps(2), box-shadow 0.12s steps(2);
+  }
+  .brut-press:hover {
+    transform: translate(3px, 3px);
+    box-shadow: 2px 2px 0 0 var(--line);
+  }
+  .brut-press:active {
+    transform: translate(6px, 6px);
+    box-shadow: 0 0 0 0 var(--line);
+  }
+  /* pop: the offset shadow turns electric-blue on press — the signature tell */
+  .brut-pop:hover {
+    box-shadow: 2px 2px 0 0 var(--accent);
+  }
+  .brut-pop:active {
+    box-shadow: 0 0 0 0 var(--accent);
+  }
+
+  /* colored blocks: black border/shadow/ink in BOTH themes (bright bg set inline) */
+  .brut-ink {
+    border: 2px solid #0b0b0b;
+    box-shadow: 6px 6px 0 0 #0b0b0b;
+    color: #0b0b0b;
+  }
+  .brut-ink.brut-press:hover {
+    box-shadow: 2px 2px 0 0 #0b0b0b;
+  }
+  .brut-ink.brut-press:active {
+    box-shadow: 0 0 0 0 #0b0b0b;
+  }
+  /* black outline cell for colored pills (no shadow) */
+  .ink-cell {
+    border: 2px solid #0b0b0b;
+    color: #0b0b0b;
+  }
+
+  /* highlighter marker behind text */
+  .hl {
+    background: var(--hl);
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+    padding: 0 0.15em;
+    color: #0b0b0b;
+  }
+
+  /* hard grid backdrop */
+  .grid-lines {
+    background-image:
+      linear-gradient(var(--line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--line) 1px, transparent 1px);
+    background-size: 48px 48px;
+    opacity: 0.08;
+  }
+
+  .marquee {
+    display: flex;
+    width: max-content;
+    animation: marquee var(--dur, 26s) linear infinite;
+  }
+  .marquee:hover {
+    animation-play-state: paused;
+  }
+  .marquee-mask {
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+    mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+  }
+
+  /* text link: hard underline sweeps in from the left */
+  .ul-sweep {
+    background-image: linear-gradient(var(--accent), var(--accent));
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    background-size: 0% 2px;
+    transition: background-size 0.22s cubic-bezier(0.2, 0.9, 0.2, 1);
+  }
+  .ul-sweep:hover {
+    background-size: 100% 2px;
+  }
+}
+
+/* hover-to-highlight: acid-yellow bg ALWAYS pairs with black ink, both themes
+   (unlayered so it never gets dropped, and so text stays readable in dark) */
+.hl-hover {
+  transition: background-color 0.12s, color 0.12s;
+}
+.hl-hover:hover {
+  background: var(--hl);
+  color: #0b0b0b;
+}
+
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* blinking terminal dot */
+@keyframes blink {
+  0%, 60% { opacity: 1; }
+  61%, 100% { opacity: 0.15; }
+}
+.blink {
+  animation: blink 1.2s steps(1) infinite;
+}
+
+/* down-arrow scroll nudge */
+@keyframes nudge {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(3px); }
+}
+.nudge {
+  animation: nudge 1.3s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee,
+  .blink,
+  .nudge {
+    animation: none;
+  }
+}

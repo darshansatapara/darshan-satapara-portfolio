@@ -1,0 +1,141 @@
+{
+  "meta": {
+    "path": "/work",
+    "title": "Work & Projects",
+    "description": "Full-stack, AI and data engineering work by Darshan Satapara — 5 roles and 16 shipped projects spanning React, Node.js, Python, OCR, LLM automation and high-volume data pipelines.",
+    "keywords": ["Darshan Satapara projects", "full-stack projects", "AI projects", "data engineering projects", "OCR pipeline", "LLM automation"]
+  },
+  "sections": {
+    "experience": [
+      {
+        "period": "Jul 2026 — Present",
+        "current": true,
+        "role": "Full-Stack Developer",
+        "company": "Soni & Soni Advocate & Attorney",
+        "points": [
+          "Built the firm's website and lead-management system plus automation workflows for internal operations.",
+          "Added lead-generation and enquiry workflows so clients can connect with the firm directly.",
+          "Automated WhatsApp and email alerts for upcoming hearings to the right team members."
+        ]
+      },
+      {
+        "period": "Jan 2026 — Jul 2026",
+        "role": "Backend & Python Developer Intern",
+        "company": "7Span",
+        "points": [
+          "Automated PDF parsing with OCR, OpenAI and Mistral AI, cutting manual data-entry bottlenecks.",
+          "Built a scalable client-agency platform backend in Node.js with secure asset sharing via AWS S3.",
+          "Aligned features with client needs across Agile sprints for smooth cross-functional delivery."
+        ]
+      },
+      {
+        "period": "Sep 2025 — Dec 2025",
+        "role": "Full-Stack Developer Intern",
+        "company": "InstaBizWeb",
+        "points": [
+          "Built Instant Dukaan, a SaaS letting local retail shops deploy online storefronts fast.",
+          "Contributed to Blutec Ping and optimized a bulk WhatsApp messaging backend.",
+          "Helped build Scout, a Google Maps B2B lead-generation and data-extraction tool."
+        ]
+      },
+      {
+        "period": "May 2025 — Jul 2025",
+        "role": "Full-Stack Developer Intern",
+        "company": "Egniol Services Pvt. Ltd.",
+        "points": [
+          "Consolidated 8-10 databases and 30+ tables holding 15M+ records into one architecture.",
+          "Created a centralized master-data table that removed resource-heavy multi-join queries.",
+          "Automated workflows in Python: WhatsApp broadcasts (UltraMsg), news scraping and review checks."
+        ]
+      },
+      {
+        "period": "Feb 2025 — Apr 2025",
+        "role": "Full-Stack Developer Intern",
+        "company": "Webseeder Technologies Pvt. Ltd.",
+        "points": [
+          "Engineered a full-stack eCommerce platform with Razorpay and admin management.",
+          "Co-developed a MERN task-management system to streamline multi-team workflows.",
+          "Optimized responsive design and frontend performance for a seamless experience."
+        ]
+      }
+    ],
+    "projects": [
+      { "n": "01", "cat": "WhatsApp · Backend", "title": "Blutec Ping", "slug": "blutec-ping", "desc": "Optimized backend for a bulk WhatsApp messaging service. Integrated the WhatsApp API for high-volume queues and streamlined queries for large-scale broadcasts.", "tags": ["Node.js", "Express.js", "WhatsApp API", "MongoDB"], "view": "https://ping.blutec.ai", "image": "/projects/blutec-ping.jpg",
+        "overview": "Ping by Blutec is a production WhatsApp marketing platform built on the official WhatsApp Business API — broadcast to thousands, let AI answer the replies, and surface the leads worth calling. I optimized the bulk-messaging backend and high-volume send queues so campaigns of 10,000+ contacts deliver reliably under WhatsApp's rate limits.",
+        "features": [
+          "Bulk broadcasts to 10,000+ contacts per campaign with rate limits handled automatically",
+          "AI chatbots that answer incoming replies in seconds, around the clock",
+          "Lead and engagement scoring that routes qualified contacts to the sales team",
+          "Shared team inbox with agent assignment and internal notes",
+          "Approved-template campaigns with audience segmentation and personalisation variables",
+          "Delivery, read, reply and click analytics for every campaign"
+        ] },
+      { "n": "02", "cat": "Security · Monitoring", "title": "Security & Activity Monitoring", "desc": "A system-monitoring platform with 15-minute screenshots, wake/sleep tracking, USB and data-transfer monitoring, plus a central admin panel for oversight and analytics.", "tags": ["Rust", "Python", "React.js", "Node.js", "System APIs"] },
+      { "n": "03", "cat": "SaaS · eCommerce", "title": "Instant Dukaan", "desc": "A scalable SaaS empowering local shops to deploy custom storefronts. Responsive frontend plus robust APIs for fast onboarding and multi-tenant operations.", "tags": ["React.js", "Node.js", "Express.js", "MySQL", "SaaS"] },
+      { "n": "04", "cat": "Full Stack · Legal Tech", "title": "Soni & Soni Website", "slug": "soni-and-soni", "desc": "A law-firm website and lead-management system with enquiry workflows and an admin panel that help clients connect with the firm directly.", "tags": ["Next.js", "React.js", "Node.js", "Admin Panel"], "view": "https://www.soniandsoni.legal", "image": "/projects/soni-and-soni.jpg",
+        "overview": "A production website and lead-management platform for Soni & Soni, an Ahmedabad IP & trademark law firm that serves clients in 111+ countries. The site presents the firm's practice areas, global reach and credibility, and routes every enquiry into an internal lead system — backed by automation workflows that connect prospective clients with the right team member fast.",
+        "features": [
+          "Marketing site for IP services — patent, trademark, copyright, design, startup and company registration",
+          "Lead-capture and enquiry workflows feeding an internal lead-management system",
+          "Admin panel for the team to manage enquiries and site content",
+          "Credibility sections — 25,000+ marks registered, 30,000+ clients, 111+ countries, testimonials",
+          "Fast, responsive Next.js frontend with 'Schedule a Consultation' conversion flows",
+          "Automation that routes incoming leads to the right team member"
+        ] },
+      { "n": "05", "cat": "Automation · Legal Tech", "title": "Hearing Alert", "desc": "An automated system that reads emails, identifies hearing dates and case details, and sends WhatsApp and email alerts to the right team members.", "tags": ["Python", "Node.js", "Email APIs", "WhatsApp API"] },
+      { "n": "06", "cat": "Security · Storage", "title": "Vault", "desc": "A secure-storage app protecting passwords, credentials and sensitive documents with passkeys, authenticator verification, secure sharing and Rust security components.", "tags": ["Rust", "Node.js", "React.js", "Passkeys"] },
+      { "n": "07", "cat": "Full Stack · Payments", "title": "Mahendra Ke Namkeen", "desc": "A B2C eCommerce platform with optimized storefront and admin panel. Razorpay, secure auth, live orders and analytics for real revenue.", "tags": ["Next.js", "Node.js", "MongoDB", "Razorpay API"] },
+      { "n": "08", "cat": "AI · Document Automation", "title": "AI-Powered OCR Pipeline", "slug": "ai-ocr-pipeline", "desc": "Converts unstructured PDFs and itineraries into database-ready JSON. Combines OpenAI, Mistral AI, AWS, Azure, MinerU and OCR, syncing to Directus — cutting manual entry 80%+.", "tags": ["Node.js", "Python", "OpenAI API", "Mistral AI", "OCR"], "code": "https://github.com/darshansatapara/OCR",
+        "overview": "A multi-format document-analysis engine that benchmarks cloud OCR services on real documents — PDFs, Excel, Word, PowerPoint, CSV and plain text — then scores extraction quality and maps exactly where each engine fails. Built as a production proof-of-concept at 7Span to choose the most accurate, lowest-cost OCR stack for automating manual data entry.",
+        "features": [
+          "Dual-engine comparison — Azure Document Intelligence vs MinerU Cloud on identical inputs",
+          "Multi-format parsing (PDF, Excel, Word, PowerPoint, CSV, TXT) with automatic format detection",
+          "Document-structure detection: multi-column reordering, invoice grouping, table preservation",
+          "Accuracy metrics — similarity %, character/word accuracy, CER and WER (Levenshtein)",
+          "Character and word confusion maps that show precisely how each engine misreads",
+          "Dual-format baseline output (TXT + Markdown) plus structured JSON reports per document"
+        ] },
+      { "n": "09", "cat": "Lead Generation · Maps", "title": "Scout", "desc": "A Google Maps B2B lead-generation tool streamlining automated business-data extraction, prospect discovery and client outreach.", "tags": ["Google Maps", "Data Extraction", "Automation"] },
+      { "n": "10", "cat": "Data · Architecture", "title": "Enterprise ETL & Denormalization", "desc": "Merged 30+ tables across 8-10 databases and 15M+ records into one source of truth. A Python ETL syncs daily inserts and improved retrieval ~60%.", "tags": ["SQL", "Python", "Database Architecture", "ETL"] },
+      { "n": "11", "cat": "LLM · GEO Content", "title": "Multi-Model Content Automation", "slug": "multi-model-content-automation", "desc": "A task-handoff pipeline orchestrating Storyteller, Architect and Editor LLM roles, enforcing GEO and human-touch formatting without manual prompting.", "tags": ["Python", "LLM APIs", "Prompt Engineering", "GEO"], "code": "https://github.com/darshansatapara/Multi-Model-Content-Automation",
+        "overview": "An LLM task-handoff pipeline that splits content creation across three specialised roles — Storyteller, Architect and Editor — so each model does one job well. The chain enforces GEO (generative-engine optimization) structure and a human-touch formatting pass automatically, removing the manual prompt-chaining between steps.",
+        "features": [
+          "Three-role LLM orchestration — Storyteller drafts, Architect structures, Editor refines",
+          "Automatic GEO formatting so output is tuned for AI answer engines",
+          "Human-touch pass that strips the robotic tone from generated copy",
+          "Zero manual prompt-chaining — each role hands off to the next programmatically",
+          "Delivered as a reproducible Jupyter pipeline"
+        ] },
+      { "n": "12", "cat": "Python · Automation", "title": "Inshorts News Scraper", "slug": "inshorts-news-scraper", "desc": "Scrapes daily trending domain-specific news from Inshorts and organizes it via Google Sheets API every morning — saving 2+ research hours a day.", "tags": ["Python", "BeautifulSoup", "Selenium", "Sheets API"], "code": "https://github.com/darshansatapara/Inshort-News-Scrapper",
+        "overview": "A Python automation that scrapes trending, domain-specific news from Inshorts every morning and files it straight into Google Sheets — turning a daily 2+ hour manual research routine into a scheduled, hands-off job.",
+        "features": [
+          "Scrapes category-specific trending news from Inshorts on a daily schedule",
+          "BeautifulSoup + Selenium handling for dynamically rendered content",
+          "Writes clean, structured rows to Google Sheets via the Sheets API",
+          "Runs every morning unattended — saves 2+ research hours a day",
+          "Single-file, low-dependency script that is easy to redeploy"
+        ] },
+      { "n": "13", "cat": "LLM · Fine-Tuning", "title": "Generative AI Fine-Tuning", "desc": "Fine-tuned Meta Llama 3.1 8B with Unsloth and QLoRA on dual T4 GPUs. Built an ingestion pipeline over 40,000+ MongoDB articles for content generation.", "tags": ["Python", "Llama 3.1", "Unsloth", "QLoRA", "PyTorch"] },
+      { "n": "14", "cat": "AI · Social Automation", "title": "X AI Automation Bot", "slug": "x-ai-automation-bot", "desc": "A Python pipeline using free-tier LLM APIs to generate context-aware content and autonomously publish scheduled posts to X.", "tags": ["Python", "X API", "Gemini", "Mistral AI", "OpenRouter"], "code": "https://github.com/darshansatapara/X-Post-Automation",
+        "overview": "An autonomous social bot that generates context-aware posts with free-tier LLMs and publishes them to X on a schedule — no paid API tier required. Several model backends (Google Gemini, Mistral AI, OpenRouter) are wired in so it keeps running even when one free quota runs dry.",
+        "features": [
+          "Context-aware post generation from a maintained topic/queue file",
+          "Multi-backend LLMs — Google Gemini, Mistral AI and OpenRouter, all free-tier",
+          "Autonomous scheduled publishing to X via the X API",
+          "Provider fallback so a single rate-limit never stops the pipeline",
+          "Pure-Python, lightweight and self-hostable"
+        ] },
+      { "n": "15", "cat": "MERN · Team Workflows", "title": "Task Management System", "desc": "A co-developed MERN task-management system to isolate and streamline project workflows across multiple teams.", "tags": ["MongoDB", "Express.js", "React.js", "Node.js"] },
+      { "n": "16", "cat": "Next.js · Personal Brand", "title": "Developer Portfolio", "slug": "developer-portfolio", "desc": "A responsive personal portfolio presenting development, data-engineering and AI work through a structured, JSON-driven content system.", "tags": ["Next.js", "React.js", "Tailwind CSS", "JSON"], "code": "https://github.com/darshansatapara",
+        "overview": "This site. A fully JSON-driven personal portfolio built on the latest Next.js, presenting full-stack, data-engineering and AI work through one structured content system — edit the data and the whole site updates. Hand-built neo-brutalist design with a pure-CSS dark mode and generated social images.",
+        "features": [
+          "Next.js 16 (App Router, Turbopack) + React 19 + TypeScript strict",
+          "Tailwind CSS v4 with a token-driven neo-brutalist design system",
+          "Single JSON content layer — every page and section reads from src/data",
+          "Pure-CSS dark mode via data-theme tokens, with no flash on load",
+          "Auto-generated Open Graph / Twitter social images using next/og",
+          "Per-page SEO metadata, sitemap, robots and JSON-LD Person schema"
+        ] }
+    ]
+  }
+}

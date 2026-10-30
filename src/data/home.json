@@ -1,0 +1,46 @@
+{
+  "meta": {
+    "path": "/",
+    "title": "Darshan Satapara — Full-Stack, Python & AI Developer",
+    "description": "Full-stack engineer building scalable web applications, high-volume data pipelines and AI-powered automation, OCR systems and LLM workflows with React, Node.js and Python.",
+    "keywords": ["Darshan Satapara", "Full-Stack Developer portfolio", "AI automation", "Python developer", "data engineering"]
+  },
+  "sections": {
+    "hero": {
+      "tag": "Portfolio",
+      "status": "Available for opportunities",
+      "kicker": "Full-stack dev & AI automation",
+      "intro": "Full-stack and AI developer building production React and Next.js apps, Node.js and Python APIs, and high-volume data pipelines — plus OCR and LLM automation that turns slow, manual work into fast, reliable systems.",
+      "pills": ["C++", "Python", "JavaScript", "React.js", "Node.js", "AI Automation"]
+    },
+    "skillsMarquee": ["C++", "Python", "JavaScript", "Node.js", "Express.js", "FastAPI", "Directus", "Supabase", "React.js", "Next.js"],
+    "stats": [
+      { "value": 15, "suffix": "M+", "label": "Records consolidated" },
+      { "value": 80, "suffix": "%", "label": "Manual entry reduced" },
+      { "value": 60, "suffix": "%", "label": "Faster query retrieval" },
+      { "value": 16, "suffix": "+", "label": "Shipped projects" }
+    ],
+    "statement": {
+      "label": "The approach",
+      "lead": "I craft reliable software that turns messy, manual work into clean, automated systems — built to scale and genuinely eliminate the bottleneck.",
+      "highlight": ["reliable software", "automated systems", "eliminate the bottleneck"],
+      "sub": "Full-stack engineering, Python backends and AI automation — shipped end to end.",
+      "cta": "Explore my work"
+    },
+    "servicesHeading": "Services that turn ideas into reliable software",
+    "aboutPreview": "Computer Engineering student, full-stack engineer and relentless problem-solver. I obsess over clean architecture, measurable impact and software that scales — and I bring sharp communication from years of podcasting and hosting.",
+    "faq": [
+      { "q": "Who is Darshan Satapara?", "a": "A full-stack, Python and AI developer based in Ahmedabad, India. I build scalable web apps, data pipelines and AI automation — turning repetitive, manual processes into reliable software." },
+      { "q": "What does Darshan build?", "a": "React and Next.js frontends, secure Node.js and Python backends, high-volume ETL pipelines, OCR and LLM automation, and eCommerce platforms with payments — end to end." },
+      { "q": "Which AI technologies does Darshan work with?", "a": "OpenAI, Mistral AI, OCR services, Llama 3.1 with Unsloth and QLoRA, prompt engineering and multi-model LLM orchestration, plus Python automation around them." },
+      { "q": "Is Darshan available for full-stack or AI opportunities?", "a": "Yes — open to full-stack and AI/automation roles and collaborations. Reach out and let's talk about what you're building." },
+      { "q": "Where can I view Darshan's projects?", "a": "The Work page lists 16 shipped projects with tags and links. Code for several is on GitHub at github.com/darshansatapara." }
+    ],
+    "contact": {
+      "heading": "Have a project in mind?",
+      "big": "Let's build it",
+      "sub": "Open to full-stack and AI automation work. Drop a line and I'll get back fast.",
+      "cta": "Let's talk"
+    }
+  }
+}
