@@ -11,7 +11,6 @@ export default function AboutPage() {
       <PageHeader
         label={about.sections.intro.label}
         title="Darshan Satapara"
-        sub={about.sections.intro.bio}
       />
       <AboutContent />
     </>
