@@ -18,54 +18,80 @@ export default function RevealObserver() {
 
   useEffect(() => {
     let io: IntersectionObserver | null = null;
-    let failsafe = 0;
+    let mo: MutationObserver | null = null;
+    const failsafes: number[] = [];
 
     // Defer one task so React finishes hydrating before we touch the DOM.
     // setTimeout (not rAF) still fires in a backgrounded/occluded tab.
     const start = window.setTimeout(() => {
       const root = document.documentElement;
       const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-      const els = Array.from(document.querySelectorAll<HTMLElement>("[data-reveal]"));
+      const seen = new WeakSet<Element>();
 
       root.classList.add("reveal-on");
 
-      if (reduce || !("IntersectionObserver" in window)) {
-        els.forEach((el) => el.classList.add("is-in"));
-        return;
+      const show = (el: Element) => el.classList.add("is-in");
+
+      // Register a batch of [data-reveal] elements: reveal what's on screen now,
+      // observe the rest, and give the batch its own failsafe.
+      const track = (els: HTMLElement[]) => {
+        const fresh = els.filter((el) => !seen.has(el) && !el.classList.contains("is-in"));
+        if (!fresh.length) return;
+        fresh.forEach((el) => seen.add(el));
+
+        if (!io) {
+          fresh.forEach(show);
+          return;
+        }
+        const vh = window.innerHeight;
+        fresh.forEach((el) => {
+          if (vh > 0 && el.getBoundingClientRect().top < vh * 0.92) show(el);
+          else io!.observe(el);
+        });
+        // safety net: never leave content hidden if IO never fires
+        // (zero-size viewport, background tab, flaky observer)
+        failsafes.push(window.setTimeout(() => fresh.forEach(show), 1600));
+      };
+
+      if (!reduce && "IntersectionObserver" in window) {
+        io = new IntersectionObserver(
+          (entries) => {
+            for (const e of entries) {
+              if (e.isIntersecting) {
+                show(e.target);
+                io?.unobserve(e.target);
+              }
+            }
+          },
+          // threshold 0 fires the moment any edge enters — tall blocks that never
+          // reach a higher ratio still reveal; negative bottom margin delays the cue
+          { rootMargin: "0px 0px -8% 0px", threshold: 0 },
+        );
       }
 
-      io = new IntersectionObserver(
-        (entries) => {
-          for (const e of entries) {
-            if (e.isIntersecting) {
-              e.target.classList.add("is-in");
-              io?.unobserve(e.target);
-            }
-          }
-        },
-        // threshold 0 fires the moment any edge enters — tall blocks that never
-        // reach a higher ratio still reveal; negative bottom margin delays the cue
-        { rootMargin: "0px 0px -8% 0px", threshold: 0 },
-      );
+      track(Array.from(document.querySelectorAll<HTMLElement>("[data-reveal]")));
 
-      // reveal anything already in the viewport on load right away
-      const vh = window.innerHeight;
-      els.forEach((el) => {
-        if (vh > 0 && el.getBoundingClientRect().top < vh * 0.92) el.classList.add("is-in");
-        else io!.observe(el);
+      // Content streamed in later (Suspense boundaries, client navigation) adds
+      // new [data-reveal] nodes after the first scan — pick those up too.
+      mo = new MutationObserver((records) => {
+        const added: HTMLElement[] = [];
+        for (const r of records) {
+          r.addedNodes.forEach((n) => {
+            if (!(n instanceof HTMLElement)) return;
+            if (n.matches("[data-reveal]")) added.push(n);
+            added.push(...n.querySelectorAll<HTMLElement>("[data-reveal]"));
+          });
+        }
+        track(added);
       });
-
-      // safety net: never leave content hidden if IO never fires
-      // (zero-size viewport, background tab, flaky observer)
-      failsafe = window.setTimeout(() => {
-        els.forEach((el) => el.classList.add("is-in"));
-      }, 1600);
+      mo.observe(document.body, { childList: true, subtree: true });
     }, 0);
 
     return () => {
       window.clearTimeout(start);
       io?.disconnect();
-      if (failsafe) window.clearTimeout(failsafe);
+      mo?.disconnect();
+      failsafes.forEach((t) => window.clearTimeout(t));
     };
   }, [pathname]);
 
