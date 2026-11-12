@@ -4,7 +4,7 @@ const NUM_COLORS = ["var(--c-sky)", "var(--c-coral)", "var(--c-lime)", "var(--c-
 
 export default function Experience({ items }: { items: Exp[] }) {
   return (
-    <section id="experience" className="invert border-b-2 border-[var(--line)] bg-[var(--bg)] text-[var(--fg)]">
+    <section id="experience" className="panel-invert border-b-2 border-[var(--line)] bg-[var(--bg)] text-[var(--fg)]">
       <div className="mx-auto max-w-6xl px-5 py-14 md:py-20">
         <div className="flex items-end justify-between border-b-2 border-[var(--line)] pb-5">
           <h2 className="font-display text-3xl font-extrabold uppercase md:text-5xl">

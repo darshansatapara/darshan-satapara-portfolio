@@ -6,7 +6,7 @@ const FOOTER_COLORS = ["var(--c-coral)", "var(--c-lime)", "var(--c-violet)", "va
 export default function Footer() {
   const c = home.sections.contact;
   return (
-    <footer className="invert bg-[var(--bg)] text-[var(--fg)]">
+    <footer className="panel-invert bg-[var(--bg)] text-[var(--fg)]">
       <div className="mx-auto max-w-6xl px-5 py-16 md:py-24">
         <span className="font-mono-x text-xs font-bold uppercase tracking-widest text-[var(--fg-dim)]">
           [ {c.heading} ]

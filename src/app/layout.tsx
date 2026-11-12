@@ -5,6 +5,7 @@ import { site } from "@/lib/data";
 import Nav from "@/components/sections/Nav";
 import Footer from "@/components/sections/Footer";
 import RevealObserver from "@/components/RevealObserver";
+import ThemeEffects from "@/components/ThemeEffects";
 import ScrollProgress from "@/components/ScrollProgress";
 
 const mono = JetBrains_Mono({
@@ -63,7 +64,8 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <head>
         <script
           dangerouslySetInnerHTML={{
-            __html: `(function(){try{var t=localStorage.getItem('theme');if(!t){t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}if(t==='dark'){document.documentElement.setAttribute('data-theme','dark');}}catch(e){}})();`,
+            // Light is the default for everyone; only an explicit saved choice changes it.
+            __html: `(function(){try{var t=localStorage.getItem('theme');if(t==='dark'||t==='rush'){document.documentElement.setAttribute('data-theme',t);}}catch(e){}})();`,
           }}
         />
       </head>
@@ -77,6 +79,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <main>{children}</main>
         <Footer />
         <RevealObserver />
+        <ThemeEffects />
       </body>
     </html>
   );

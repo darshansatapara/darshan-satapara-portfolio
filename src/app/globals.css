@@ -35,45 +35,145 @@
   --c-amber: #ffbf3c;
 }
 
-/* Inverted blocks: black bg, paper text/borders (relative to the theme) */
-.invert {
-  --bg: #0b0b0b;
-  --bg-2: #141414;
+/* Inverted blocks: graphite bg, paper text/borders (relative to the theme).
+   Not named `.invert` — that's Tailwind's filter: invert(100%) utility. */
+.panel-invert {
+  --bg: #1a1b20;
+  --bg-2: #22232a;
   --fg: #f2f0e9;
-  --fg-dim: #b7b7ad;
-  --fg-faint: #76766d;
+  --fg-dim: #b9b8b0;
+  --fg-faint: #7d7c76;
   --line: #f2f0e9;
 }
 
-/* ===== Dark theme — flips the whole palette via tokens only ===== */
+/* ===== Dark theme — warm graphite, not pure black. Tokens only ===== */
 :root[data-theme="dark"] {
   color-scheme: dark;
-  --paper: #121212;
-  --paper-2: #1c1c1c;
-  --ink: #f2f0e9;
-  --bg: #0b0b0b;
-  --bg-2: #141414;
-  --fg: #f2f0e9;
-  --fg-dim: #b7b7ad;
-  --fg-faint: #76766d;
-  --line: #f2f0e9;
-  --accent: #4b4bff;
-  --accent-2: #2a2aff;
+  --paper: #23242a;
+  --paper-2: #2b2c33;
+  --ink: #ecebe4;
+  --bg: #1a1b20;
+  --bg-2: #202128;
+  --fg: #ecebe4;
+  --fg-dim: #b9b8b0;
+  --fg-faint: #7d7c76;
+  --line: #d9d7ce;
+  --accent: #7a7aff;
+  --accent-2: #5c5cff;
 }
 
-/* In dark mode the .invert blocks become the LIGHT panels (keep alternation) */
-:root[data-theme="dark"] .invert {
-  --paper: #f2f0e9;
-  --paper-2: #e9e6dc;
-  --ink: #0b0b0b;
-  --bg: #f2f0e9;
-  --bg-2: #e9e6dc;
-  --fg: #0b0b0b;
-  --fg-dim: #46463f;
-  --fg-faint: #83837a;
-  --line: #0b0b0b;
+/* In dark mode the .panel-invert blocks become soft LIGHT panels (keep alternation) */
+:root[data-theme="dark"] .panel-invert {
+  --paper: #ecebe4;
+  --paper-2: #e2e0d7;
+  --ink: #1a1b20;
+  --bg: #e6e4dc;
+  --bg-2: #dcdad1;
+  --fg: #1a1b20;
+  --fg-dim: #4a4a44;
+  --fg-faint: #85847c;
+  --line: #1a1b20;
   --accent: #1f1fff;
   --accent-2: #0000c2;
+}
+
+/* ===== Rush theme — midnight indigo, blaze-orange lines, hot-pink accent ===== */
+:root[data-theme="rush"] {
+  color-scheme: dark;
+  --paper: #22173f;
+  --paper-2: #2b1e4f;
+  --ink: #fff3e6;
+  --bg: #170f2c;
+  --bg-2: #1e1538;
+  --fg: #fff3e6;
+  --fg-dim: #d2c6e6;
+  --fg-faint: #9384b3;
+  --line: #ff6a2b;
+  --accent: #ff3d93;
+  --accent-2: #e81a73;
+  --hl: #ffe14d;
+}
+
+/* Rush .panel-invert blocks are blaze-orange panels with indigo ink */
+:root[data-theme="rush"] .panel-invert {
+  --paper: #fff1e3;
+  --paper-2: #ffe2c9;
+  --ink: #170f2c;
+  --bg: #ff6a2b;
+  --bg-2: #ff7d45;
+  --fg: #170f2c;
+  --fg-dim: #3a1f45;
+  --fg-faint: #6b3540;
+  --line: #170f2c;
+  --accent: #2a1678;
+  --accent-2: #170f2c;
+}
+
+/* Rush: sections lean with scroll speed (--rush-skew is driven by ThemeEffects) */
+:root[data-theme="rush"] main > section,
+:root[data-theme="rush"] main > div > section {
+  transform: skewY(var(--rush-skew, 0deg));
+  transform-origin: center;
+}
+
+/* Rush: faint diagonal speed lines drifting over the page (every section has
+   an opaque background, so they sit above content, click-through) */
+.rush-lines {
+  display: none;
+}
+:root[data-theme="rush"] .rush-lines {
+  display: block;
+  position: fixed;
+  inset: -50%;
+  z-index: 55;
+  pointer-events: none;
+  opacity: 0.05;
+  mix-blend-mode: screen;
+  background-image: repeating-linear-gradient(
+    -18deg,
+    transparent 0 46px,
+    var(--line) 46px 48px,
+    transparent 48px 110px,
+    var(--accent) 110px 111px
+  );
+  animation: rush-drift 6s linear infinite;
+}
+@keyframes rush-drift {
+  to {
+    transform: translate3d(-111px, 36px, 0);
+  }
+}
+
+/* Rush: scroll progress burns from yellow to orange to pink */
+:root[data-theme="rush"] .scroll-progress {
+  background: linear-gradient(90deg, var(--hl), var(--line), var(--accent));
+}
+
+/* Theme switch: the new theme grows as a circle out of the toggle button */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+::view-transition-new(root) {
+  animation: theme-wipe 0.6s cubic-bezier(0.2, 0.9, 0.2, 1);
+}
+@keyframes theme-wipe {
+  from {
+    clip-path: circle(0 at var(--vt-x, 100%) var(--vt-y, 0));
+  }
+  to {
+    clip-path: circle(var(--vt-r, 150vmax) at var(--vt-x, 100%) var(--vt-y, 0));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root[data-theme="rush"] .rush-lines {
+    animation: none;
+  }
+  ::view-transition-new(root) {
+    animation: none;
+  }
 }
 
 html {
@@ -117,7 +217,7 @@ body::after {
   outline: 3px solid var(--accent);
   outline-offset: 2px;
 }
-.invert :focus-visible {
+.panel-invert :focus-visible {
   outline-color: var(--hl);
 }
 

@@ -83,7 +83,7 @@ export default function AboutContent() {
       </section>
 
       {/* Toolkit */}
-      <section className="invert border-b-2 border-[var(--line)] bg-[var(--bg)] text-[var(--fg)]">
+      <section className="panel-invert border-b-2 border-[var(--line)] bg-[var(--bg)] text-[var(--fg)]">
         <div className="mx-auto max-w-6xl px-5 py-14 md:py-20">
           <h2 className="border-b-2 border-[var(--line)] pb-5 font-display text-3xl font-extrabold uppercase md:text-5xl">
             Technical toolkit
