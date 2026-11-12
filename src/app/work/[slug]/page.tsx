@@ -194,10 +194,46 @@ async function ProjectDetail({ params }: Params) {
                 </ul>
               </>
             )}
+
+            {project.highlights && project.highlights.length > 0 && (
+              <>
+                <h2 className="mt-12 font-mono-x text-xs font-bold uppercase tracking-widest text-[var(--fg-dim)]">
+                  [ engineering highlights ]
+                </h2>
+                <div className="mt-5 grid gap-4">
+                  {project.highlights.map((h) => (
+                    <div key={h.title} className="brut-flat bg-[var(--paper)] p-5">
+                      <h3 className="font-display text-base font-extrabold uppercase leading-tight">{h.title}</h3>
+                      <p className="mt-2 text-sm leading-relaxed text-[var(--fg-dim)]">{h.body}</p>
+                    </div>
+                  ))}
+                </div>
+              </>
+            )}
           </div>
 
           {/* meta sidebar */}
           <aside className="px-5 py-12 md:w-[18rem] md:py-16">
+            {(project.status || project.context) && (
+              <dl className="mb-10 flex flex-col gap-5">
+                {project.status && (
+                  <div>
+                    <dt className="font-mono-x text-xs font-bold uppercase tracking-widest text-[var(--fg-dim)]">
+                      [ status ]
+                    </dt>
+                    <dd className="mt-2 text-sm font-bold">{project.status}</dd>
+                  </div>
+                )}
+                {project.context && (
+                  <div>
+                    <dt className="font-mono-x text-xs font-bold uppercase tracking-widest text-[var(--fg-dim)]">
+                      [ context ]
+                    </dt>
+                    <dd className="mt-2 text-sm font-bold">{project.context}</dd>
+                  </div>
+                )}
+              </dl>
+            )}
             <h2 className="font-mono-x text-xs font-bold uppercase tracking-widest text-[var(--fg-dim)]">
               [ tech stack ]
             </h2>

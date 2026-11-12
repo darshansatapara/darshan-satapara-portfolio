@@ -27,10 +27,16 @@ export type Project = {
   tags: string[];
   view?: string;
   code?: string;
-  /** present only on projects that have a repo/live link and so get a detail page */
+  /** projects with a slug get a detail page at /work/[slug] */
   slug?: string;
   overview?: string;
   features?: string[];
+  /** e.g. "Live in production", "Prototype" */
+  status?: string;
+  /** where/for whom it was built, e.g. "Client project" */
+  context?: string;
+  /** short engineering-decision write-ups shown on the detail page */
+  highlights?: { title: string; body: string }[];
   /** screenshot of the live site, served from /public */
   image?: string;
 };

@@ -12,7 +12,7 @@ export default function WorkPage() {
       <PageHeader
         label="Portfolio"
         title="Work & Projects"
-        sub="Full-stack, AI and data engineering work — 5 roles and 16 shipped projects."
+        sub="Full-stack, AI and data engineering work — 5 roles and 25 shipped projects."
       />
       <Experience items={work.sections.experience as Exp[]} />
       <Projects

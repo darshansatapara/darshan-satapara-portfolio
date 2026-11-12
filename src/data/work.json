@@ -2,8 +2,15 @@
   "meta": {
     "path": "/work",
     "title": "Work & Projects",
-    "description": "Full-stack, AI and data engineering work by Darshan Satapara — 5 roles and 16 shipped projects spanning React, Node.js, Python, OCR, LLM automation and high-volume data pipelines.",
-    "keywords": ["Darshan Satapara projects", "full-stack projects", "AI projects", "data engineering projects", "OCR pipeline", "LLM automation"]
+    "description": "Full-stack, AI and data engineering work by Darshan Satapara — 5 roles and 25 shipped projects spanning React, Node.js, Python, OCR, LLM automation and high-volume data pipelines.",
+    "keywords": [
+      "Darshan Satapara projects",
+      "full-stack projects",
+      "AI projects",
+      "data engineering projects",
+      "OCR pipeline",
+      "LLM automation"
+    ]
   },
   "sections": {
     "experience": [
@@ -13,9 +20,9 @@
         "role": "Full-Stack Developer",
         "company": "Soni & Soni Advocate & Attorney",
         "points": [
-          "Built the firm's website and lead-management system plus automation workflows for internal operations.",
-          "Added lead-generation and enquiry workflows so clients can connect with the firm directly.",
-          "Automated WhatsApp and email alerts for upcoming hearings to the right team members."
+          "Built the firm's website and a suite of internal products — WhatsApp visitor management with single sign-on, a unified management portal and Android lead and call recorders.",
+          "Engineered security software in Rust: a cross-platform endpoint-monitoring agent and a zero-knowledge password and document vault compiled to WebAssembly.",
+          "Built a patent deadline and hearing-alert system with a statutory rules engine, OCR and WhatsApp/email alerts, plus EVA, a multilingual AI chat assistant."
         ]
       },
       {
@@ -60,7 +67,225 @@
       }
     ],
     "projects": [
-      { "n": "01", "cat": "WhatsApp · Backend", "title": "Blutec Ping", "slug": "blutec-ping", "desc": "Optimized backend for a bulk WhatsApp messaging service. Integrated the WhatsApp API for high-volume queues and streamlined queries for large-scale broadcasts.", "tags": ["Node.js", "Express.js", "WhatsApp API", "MongoDB"], "view": "https://ping.blutec.ai", "image": "/projects/blutec-ping.jpg",
+      {
+        "n": "01",
+        "cat": "Security · Rust Agents",
+        "title": "Endpoint Security & Activity Monitoring",
+        "slug": "endpoint-security-monitoring",
+        "status": "Built · verified end to end on Windows",
+        "context": "Law-firm product, designed to be sold multi-tenant",
+        "desc": "Cross-platform endpoint monitoring for company-managed devices — native Rust agents for Windows, macOS and Linux, a multi-tenant central server, org-encrypted screenshots and exfiltration alerts.",
+        "tags": [
+          "Rust",
+          "axum",
+          "PostgreSQL",
+          "SQLite",
+          "AES-256-GCM",
+          "Windows · macOS · Linux"
+        ],
+        "overview": "A multi-tenant activity-monitoring product for company-owned devices. A native agent runs as a normal, discoverable service on each machine, captures app, browser, idle, USB and print activity, encrypts and hash-chains it locally, and syncs it to a central axum + PostgreSQL server where an organisation's admins see their whole fleet. It started as a single-machine Windows tool and grew into a sellable product with self-serve org signup and per-seat trial licensing.",
+        "features": [
+          "Native agents for Windows (Service), macOS (launchd) and Linux (systemd) from one Rust codebase — 62 tests green",
+          "Foreground app, window title, browser domain, idle time and scheduled screenshots",
+          "Exfiltration monitoring — files copied to USB, print jobs, USB device identity and installed transfer apps",
+          "Central org dashboard: fleet KPIs, cross-device timeline, transfers view, alert-rules editor and screenshot grid",
+          "Offline-first sync with retry and back-off; idempotent uploads keyed on ULIDs so retries never duplicate",
+          "Self-serve organisation signup, per-seat licensing with trial and expiry, OS-detecting download page",
+          "Privacy by design: no keylogging, credentials, cookies, webcam or microphone capture — ever"
+        ],
+        "highlights": [
+          {
+            "title": "Tamper-evident by construction",
+            "body": "Every event is SHA-256 hash-chained to the previous one and the chain travels with the data, so the server can independently re-verify each device. Retention purges re-seal the chain instead of leaving a break that looks like tampering."
+          },
+          {
+            "title": "Screenshots the server can't read",
+            "body": "Each screenshot is encrypted on the device with AES-256-GCM, then re-encrypted under an org key before upload. The dashboard decrypts for that org only — the server operator never sees plaintext."
+          },
+          {
+            "title": "Session-0 split",
+            "body": "A Windows service can't see the desktop, so a user-session collector writes encrypted blobs into a crash-safe, idempotent dropbox that the service ingests — keeping a single writer and a meaningful hash chain."
+          }
+        ]
+      },
+      {
+        "n": "02",
+        "cat": "Security · Cryptography",
+        "title": "Zero-Knowledge Vault",
+        "slug": "zero-knowledge-vault",
+        "status": "Working build · security levels L1–L7 built",
+        "context": "Law-firm product for credentials and privileged documents",
+        "desc": "A local-first, zero-knowledge vault for passwords and documents — a Rust cryptographic core compiled to WebAssembly, encrypted sync that survives a malicious server, passkeys and guarded items.",
+        "tags": [
+          "Rust",
+          "WebAssembly",
+          "React",
+          "TypeScript",
+          "Fastify",
+          "PostgreSQL",
+          "WebAuthn"
+        ],
+        "overview": "A password and document vault where the server stores and syncs encrypted material but never holds the secret that unlocks it — and cannot lie about the vault's contents without being caught. All cryptography lives in a Rust core compiled to WebAssembly and run in a worker, so keys never touch the JavaScript heap. It ships as a web app, a browser extension and an Android shell, and works fully offline.",
+        "features": [
+          "Passwords with folders, tags, custom fields, local search and an unbiased password generator",
+          "Documents up to 2 GiB, streamed and chunk-encrypted — filenames and metadata encrypted too",
+          "Encrypted multi-device sync protected against record swapping, rollback, silent deletion and forked histories",
+          "Guarded items whose keys are split so a second, biometric-confirmed device must approve every decryption",
+          "Client-generated recovery key, passkey (WebAuthn) sign-in, account 2FA and Postgres row-level security",
+          "Browser extension with sign-in, fill card and toolbar popup; installable web app; full offline CRUD"
+        ],
+        "highlights": [
+          {
+            "title": "Built the attacker first",
+            "body": "A 'lying server' harness can drop objects, replay old manifests, reorder deltas or show two devices different views. It was built before any defence and proven to succeed — then the signed Merkle manifest and AAD binding were added to make every attack fail."
+          },
+          {
+            "title": "Crypto frozen on day one",
+            "body": "XChaCha20-Poly1305 with full AAD binding, Argon2id, Ed25519, X25519 and BLAKE3 from reviewed libraries, with #![forbid(unsafe_code)] — the on-disk format was fixed at the first level and never weakened."
+          },
+          {
+            "title": "Honest by construction",
+            "body": "A ten-level build ladder ties each level to the class of data it may hold, and builds below the top level display a banner that cannot be switched off."
+          }
+        ]
+      },
+      {
+        "n": "03",
+        "cat": "Marketplace · Payments",
+        "title": "KartIPR — IP Marketplace",
+        "slug": "kartipr",
+        "status": "v1 live · v2 rebuild in progress",
+        "context": "Client project",
+        "view": "https://kartipr.com",
+        "desc": "India's attorney-verified marketplace to buy, sell and license trademarks, patents, copyrights and designs — deal rooms, KYC, escrow-style payments and a separate team console.",
+        "tags": [
+          "Next.js 16",
+          "TypeScript",
+          "Prisma",
+          "PostgreSQL",
+          "Razorpay",
+          "Vitest"
+        ],
+        "overview": "A marketplace where owners list registered IP and buyers discover, negotiate and acquire it, with attorneys verifying ownership, registration status and litigation before anything goes live. The v2 rebuild splits the product into two Next.js apps — the public store and a team console — over a 54-model PostgreSQL schema, with a re-runnable migration that carries every v1 record across.",
+        "features": [
+          "Eight kinds of IP — trademarks, patents, copyrights, designs and more — sold outright, licensed or co-developed",
+          "Attorney-verified listings, KYC, ownership checks and terms acceptance before a deal can start",
+          "Deal rooms with offers, messages, best-and-final rounds and an append-only deal-event history",
+          "Payments, payouts, invoices and a double-entry style ledger, with money handled in decimal.js — never floats",
+          "Valuation requests, appointments, memberships, support tickets and a conduct/strike policy in the schema",
+          "Separate store and admin console sharing code through a checked sync contract"
+        ],
+        "highlights": [
+          {
+            "title": "Concurrency made explicit",
+            "body": "Listing locks and queue claims mean two buyers can never open a deal on the same listing at once — interest is queued, not raced."
+          },
+          {
+            "title": "A smoke test for every route",
+            "body": "One command requests every page and API route as a visitor, a buyer and a seller — exactly where a marketplace tends to leak."
+          },
+          {
+            "title": "Two apps, one set of rules",
+            "body": "The store owns the schema and business rules; the console copies the files it needs via shared.json and warns on start if they drift. Shared modules never read either app's session."
+          }
+        ]
+      },
+      {
+        "n": "04",
+        "cat": "Full Stack · Identity",
+        "title": "Visitor Management & SSO Identity",
+        "slug": "visitor-management",
+        "status": "Live in production",
+        "context": "Law-firm internal product",
+        "desc": "WhatsApp-driven visitor check-in for a law firm's reception that also became the single sign-on identity service for every internal product.",
+        "tags": [
+          "Node.js",
+          "Express 5",
+          "TypeScript",
+          "Prisma",
+          "PostgreSQL",
+          "React 19",
+          "WhatsApp API"
+        ],
+        "overview": "A visitor scans a QR code at reception, WhatsApp opens with a message ready to send, and the reply is a short-lived link to a registration form — pre-filled if they've visited before. Reception checks people in and out from the management portal. The same service owns the firm's staff accounts and mints the JWTs every other internal product trusts, which makes it the most load-bearing system the firm runs.",
+        "features": [
+          "QR → WhatsApp → short link → pre-filled registration form, with no app to install",
+          "One person record per WhatsApp number and one row per visit — returning visitors never duplicate",
+          "Reception check-in, check-out and cancel, plus reception-entered visits from the portal",
+          "Shared staff identity: one account table, application-scoped JWTs, refresh tokens and super-admin user management",
+          "Five WhatsApp providers and two storage back-ends behind single interfaces — switching is a config change",
+          "Health endpoint, strict per-route rate limits and HMAC-verified webhooks"
+        ],
+        "highlights": [
+          {
+            "title": "Phone numbers never in a URL",
+            "body": "The visitor's number travels only inside a two-hour signed token behind a 16-character short code; the API only ever returns a masked value."
+          },
+          {
+            "title": "Strictly layered",
+            "body": "Route → Zod validation → auth → application gate → controller → service → DAO. Express 5 forwards async errors, so controllers carry no try/catch and every response uses one envelope."
+          },
+          {
+            "title": "Fail loud at boot",
+            "body": "One file may read process.env; it validates every variable with Zod and exits on a bad value, so a misconfigured deploy fails immediately instead of at the first request."
+          }
+        ]
+      },
+      {
+        "n": "05",
+        "cat": "Mobile · Android",
+        "title": "Lead Recorder",
+        "slug": "lead-recorder",
+        "status": "Live · in pilot",
+        "context": "Law-firm internal product",
+        "desc": "A Flutter + Kotlin app that notices every lead call on its own, asks Save or Ignore after hang-up, and files the call and recording to a Fastify API with a Google Sheets mirror.",
+        "tags": [
+          "Flutter",
+          "Kotlin",
+          "Swift",
+          "Fastify",
+          "PostgreSQL",
+          "Google Apps Script",
+          "GitHub Actions"
+        ],
+        "overview": "Leads were lost because calls happened and nobody wrote them down. Lead Recorder assumes nobody will: it detects the call itself and asks one question after hang-up — Save or Ignore. Android records through a Kotlin plugin; iOS, where apps can't record calls, uses a share extension for recordings made in the Phone app. Both land in the same Fastify + PostgreSQL backend, mirrored row by row into a Google Sheet.",
+        "features": [
+          "Automatic call detection with a Save / Ignore notification seconds after hang-up",
+          "Smart recording choice — prefers the dialer's two-sided recording, respects manual start/pause/stop",
+          "Recent tab to catch up on the last 7 days of calls with Save all — safe to press twice",
+          "Indian numbers normalised to +91 and unknown callers named from the dialer's file name, server-side",
+          "Admin and user roles, Google Sheet mirror that can never block a save, 15-minute signed playback links",
+          "CI/CD: backend tested then deployed; signed APK published so phones offer 'Update available'"
+        ],
+        "highlights": [
+          {
+            "title": "Idempotent by design",
+            "body": "Calls are deduplicated on number + start time and on a client-supplied ID, so retries and 'Save all' can never store a call twice."
+          },
+          {
+            "title": "Hardened on both ends",
+            "body": "bcrypt cost 12 with timing-safe unknown-email handling, pinned-algorithm JWTs, per-IP rate limits; on the phone the token is encrypted with an AES-256 key in the hardware keystore."
+          },
+          {
+            "title": "Rules live on the server",
+            "body": "Number and name normalisation run in the API, so a backfill script can fix every old row when a rule changes."
+          }
+        ]
+      },
+      {
+        "n": "06",
+        "cat": "WhatsApp · Backend",
+        "title": "Blutec Ping",
+        "slug": "blutec-ping",
+        "desc": "Optimized backend for a bulk WhatsApp messaging service. Integrated the WhatsApp API for high-volume queues and streamlined queries for large-scale broadcasts.",
+        "tags": [
+          "Node.js",
+          "Express.js",
+          "WhatsApp API",
+          "MongoDB"
+        ],
+        "view": "https://ping.blutec.ai",
+        "image": "/projects/blutec-ping.jpg",
         "overview": "Ping by Blutec is a production WhatsApp marketing platform built on the official WhatsApp Business API — broadcast to thousands, let AI answer the replies, and surface the leads worth calling. I optimized the bulk-messaging backend and high-volume send queues so campaigns of 10,000+ contacts deliver reliably under WhatsApp's rate limits.",
         "features": [
           "Bulk broadcasts to 10,000+ contacts per campaign with rate limits handled automatically",
@@ -69,10 +294,182 @@
           "Shared team inbox with agent assignment and internal notes",
           "Approved-template campaigns with audience segmentation and personalisation variables",
           "Delivery, read, reply and click analytics for every campaign"
-        ] },
-      { "n": "02", "cat": "Security · Monitoring", "title": "Security & Activity Monitoring", "desc": "A system-monitoring platform with 15-minute screenshots, wake/sleep tracking, USB and data-transfer monitoring, plus a central admin panel for oversight and analytics.", "tags": ["Rust", "Python", "React.js", "Node.js", "System APIs"] },
-      { "n": "03", "cat": "SaaS · eCommerce", "title": "Instant Dukaan", "desc": "A scalable SaaS empowering local shops to deploy custom storefronts. Responsive frontend plus robust APIs for fast onboarding and multi-tenant operations.", "tags": ["React.js", "Node.js", "Express.js", "MySQL", "SaaS"] },
-      { "n": "04", "cat": "Full Stack · Legal Tech", "title": "Soni & Soni Website", "slug": "soni-and-soni", "desc": "A law-firm website and lead-management system with enquiry workflows and an admin panel that help clients connect with the firm directly.", "tags": ["Next.js", "React.js", "Node.js", "Admin Panel"], "view": "https://www.soniandsoni.legal", "image": "/projects/soni-and-soni.jpg",
+        ]
+      },
+      {
+        "n": "07",
+        "cat": "Admin Console · SSO",
+        "title": "Management Portal",
+        "slug": "management-portal",
+        "status": "Live (internal)",
+        "context": "Law-firm internal product",
+        "desc": "One sign-in console for every internal product — a static React SPA that talks directly to each product's admin API, with data-driven modules, permissions and live health tiles.",
+        "tags": [
+          "React 18",
+          "TypeScript",
+          "Vite",
+          "TanStack Query",
+          "Zustand",
+          "Tailwind CSS 4",
+          "Zod"
+        ],
+        "overview": "Staff sign in once and work across every internal backend that's deployed, instead of keeping a password per tool. The portal owns no backend and no database: it is a static single-page app whose every screen is a view onto another product's admin API. Adding a new product is three small edits — a catalogue entry, an API service and a module folder — not a new application.",
+        "features": [
+          "Sidebar, launcher, command palette and dashboard tiles all generated from one software catalogue",
+          "Visitor-management module: overview, visits, visitors, check-in actions and reorderable master lists",
+          "Website module: leads, newsletter subscribers, vacancies, job applications and a live careers form builder",
+          "Role- and application-based permissions with wildcards, enforced on routes and in the UI",
+          "Live health probe per backend — operational, degraded, offline or not deployed",
+          "CI on staging; deploy on main with an empty-build guard, rollback copy and health gate"
+        ],
+        "highlights": [
+          {
+            "title": "One Axios client per backend",
+            "body": "A lazy factory attaches the bearer token, unwraps the response envelope, normalises every error and shares a single transparent token refresh across concurrent requests."
+          },
+          {
+            "title": "Never invent data",
+            "body": "There's no mock layer — a product with no backend shows 'Not configured', and the health sweep is scoped to the user's grants and shared across components for 15 seconds."
+          },
+          {
+            "title": "Kept out of search",
+            "body": "robots.txt, a noindex meta tag and an X-Robots-Tag header keep an internal tool unindexable, including by AI crawlers."
+          }
+        ]
+      },
+      {
+        "n": "08",
+        "cat": "Legal Tech · Deadlines",
+        "title": "Hearing Alert — Docket Radar",
+        "slug": "hearing-alert",
+        "status": "In development",
+        "context": "Law-firm internal product",
+        "desc": "Zero-fail patent deadline and hearing management — a statutory rules engine for IN, US, EP and PCT, an alert scheduler over email and WhatsApp, and OCR that reads official receipts.",
+        "tags": [
+          "React 19",
+          "Vite",
+          "Node.js",
+          "Express",
+          "Prisma",
+          "PostgreSQL",
+          "Tesseract.js",
+          "WhatsApp API"
+        ],
+        "overview": "In IP practice a missed statutory deadline can end a client's rights. Hearing Alert encodes those deadlines instead of remembering them: prosecution events across four jurisdictions and eight stages generate dated obligations, a scheduler decides when to alert, and OCR pulls dates and reference numbers out of official correspondence so a paralegal confirms a date instead of typing one.",
+        "features": [
+          "Statutory rules engine for India, USPTO, EPO and WIPO/PCT across eight prosecution stages",
+          "Board, Kanban and calendar views with urgency tiers from 'safe' to 'overdue'",
+          "Deadline calculator — ask 'if the FER issued on this date, when is the response due?' without creating a matter",
+          "Three alert schedules (eve-of, halving, daily) over email and WhatsApp, with hearing-time reminders",
+          "Receipt upload with OCR and PDF parsing to extract reference numbers, fees and transaction dates",
+          "Firms, teams, clients, matters, roles and a per-firm audit log"
+        ],
+        "highlights": [
+          {
+            "title": "Statutory vs extended vs verified",
+            "body": "The rule's date, an obtained extension and a human verification are three separate things in the schema — 'waiting verification' is a first-class state, not a flag."
+          },
+          {
+            "title": "When decoupled from what",
+            "body": "The alert schedule decides which days fire and the notification decides what it says, so either can change without the other."
+          },
+          {
+            "title": "Honest delivery",
+            "body": "Without mail credentials, alerts are recorded as undelivered rather than silently marked as sent."
+          }
+        ]
+      },
+      {
+        "n": "09",
+        "cat": "AI · Voice Assistant",
+        "title": "L — Offline Voice Assistant",
+        "slug": "voice-assistant",
+        "status": "In daily use",
+        "context": "Personal project",
+        "desc": "A Windows voice assistant with a fully local speech pipeline that opens apps, operates windows, sets reminders, speaks Hinglish — and hands harder tasks to Claude Code running headless.",
+        "tags": [
+          "Python",
+          "faster-whisper",
+          "Piper TTS",
+          "openWakeWord",
+          "pywinauto",
+          "MCP",
+          "Claude Code"
+        ],
+        "overview": "Say 'Hey L' and an offline speech pipeline — wake word, voice-activity endpointing, Whisper transcription and Piper speech — turns the request into an intent. Plain rules handle everything they can: opening apps and sites, web searches, volume, media, reminders. Only the remainder reaches a model, through Claude Code in a small, fast 'ask' mode or a 'desktop' mode with lean custom tools for operating application windows.",
+        "features": [
+          "Wake word, push-to-talk or off — switchable from the tray; push mode keeps Bluetooth earbuds out of headset mode",
+          "Local speech in and out: openWakeWord, faster-whisper, WebRTC VAD and Piper — nothing sent off to be transcribed",
+          "Rule-based router that understands English and Hinglish and replies in Hindi when spoken to in Hindi",
+          "Opens apps and sites, searches YouTube, GitHub, Maps and more, and pastes tasks into focused windows",
+          "Reminders, long-term memory and a name-aware greeting that never guesses a title",
+          "Autostart with a tray icon and a small web-view UI"
+        ],
+        "highlights": [
+          {
+            "title": "Token-cost architecture",
+            "body": "Rules first, a small model next, tools only when needed. A custom MCP server replaced a generic desktop tool whose screenshots cost hundreds of thousands of tokens per task — it returns short text lists of a single window's controls instead."
+          },
+          {
+            "title": "Deliberate blast radius",
+            "body": "A voice-triggered agent gets no shell, registry or file-deletion tool, runs without the user's plugins or hooks, and may write only inside its own working folder."
+          },
+          {
+            "title": "Clicks without the mouse",
+            "body": "Desktop actions use UI Automation 'invoke' wherever possible, so the cursor doesn't move while you work."
+          }
+        ]
+      },
+      {
+        "n": "10",
+        "cat": "AI · Chatbot",
+        "title": "EVA — Multilingual AI Assistant",
+        "slug": "eva-ai-assistant",
+        "status": "Prototype",
+        "context": "Law-firm website R&D",
+        "desc": "A streaming AI chat assistant for a law-firm website, built into a Next.js redesign prototype with 3D visuals, an MDX journal and three explored design themes.",
+        "tags": [
+          "Next.js 16",
+          "Anthropic API",
+          "TypeScript",
+          "React Three Fiber",
+          "MDX",
+          "Zod"
+        ],
+        "overview": "A next-generation take on the firm's public website, built to explore what the live site doesn't have yet. Its centrepiece is EVA, a chat assistant that streams Claude's replies from a server-side route so the system prompt and API key never reach the browser. Around it sit React Three Fiber visuals, an MDX-powered journal and three design directions backed by a documented reference teardown.",
+        "features": [
+          "Streaming chat endpoint — the browser only ever sees EVA's words",
+          "Script pinning: detects Gujarati and Devanagari in the visitor's message and forces the reply into the same script",
+          "Config-gated integrations — EVA, booking, live chat and payments render nothing until configured",
+          "MDX journal with front matter, plus Zod-validated server actions for forms",
+          "3D hero visuals with React Three Fiber and drei",
+          "Three design themes explored on separate branches, with a token system per theme"
+        ],
+        "highlights": [
+          {
+            "title": "Don't trust the model to guess the script",
+            "body": "Smaller models often answer romanised Hindi or Gujarati in native script. The route detects the script deterministically from Unicode ranges and appends a hard directive."
+          },
+          {
+            "title": "Safe to half-configure",
+            "body": "The endpoint returns 503 until its key is set, so a half-configured widget can never ship."
+          }
+        ]
+      },
+      {
+        "n": "11",
+        "cat": "Full Stack · Legal Tech",
+        "title": "Soni & Soni Website",
+        "slug": "soni-and-soni",
+        "desc": "A law-firm website and lead-management system with enquiry workflows and an admin panel that help clients connect with the firm directly.",
+        "tags": [
+          "Next.js",
+          "React.js",
+          "Node.js",
+          "Admin Panel"
+        ],
+        "view": "https://www.soniandsoni.legal",
+        "image": "/projects/soni-and-soni.jpg",
         "overview": "A production website and lead-management platform for Soni & Soni, an Ahmedabad IP & trademark law firm that serves clients in 111+ countries. The site presents the firm's practice areas, global reach and credibility, and routes every enquiry into an internal lead system — backed by automation workflows that connect prospective clients with the right team member fast.",
         "features": [
           "Marketing site for IP services — patent, trademark, copyright, design, startup and company registration",
@@ -81,11 +478,85 @@
           "Credibility sections — 25,000+ marks registered, 30,000+ clients, 111+ countries, testimonials",
           "Fast, responsive Next.js frontend with 'Schedule a Consultation' conversion flows",
           "Automation that routes incoming leads to the right team member"
-        ] },
-      { "n": "05", "cat": "Automation · Legal Tech", "title": "Hearing Alert", "desc": "An automated system that reads emails, identifies hearing dates and case details, and sends WhatsApp and email alerts to the right team members.", "tags": ["Python", "Node.js", "Email APIs", "WhatsApp API"] },
-      { "n": "06", "cat": "Security · Storage", "title": "Vault", "desc": "A secure-storage app protecting passwords, credentials and sensitive documents with passkeys, authenticator verification, secure sharing and Rust security components.", "tags": ["Rust", "Node.js", "React.js", "Passkeys"] },
-      { "n": "07", "cat": "Full Stack · Payments", "title": "Mahendra Ke Namkeen", "desc": "A B2C eCommerce platform with optimized storefront and admin panel. Razorpay, secure auth, live orders and analytics for real revenue.", "tags": ["Next.js", "Node.js", "MongoDB", "Razorpay API"] },
-      { "n": "08", "cat": "AI · Document Automation", "title": "AI-Powered OCR Pipeline", "slug": "ai-ocr-pipeline", "desc": "Converts unstructured PDFs and itineraries into database-ready JSON. Combines OpenAI, Mistral AI, AWS, Azure, MinerU and OCR, syncing to Directus — cutting manual entry 80%+.", "tags": ["Node.js", "Python", "OpenAI API", "Mistral AI", "OCR"], "code": "https://github.com/darshansatapara/OCR",
+        ]
+      },
+      {
+        "n": "12",
+        "cat": "Mobile · Privacy",
+        "title": "Call Recorder",
+        "slug": "call-recorder",
+        "status": "Shipping as a signed APK",
+        "context": "Law-firm internal tool",
+        "desc": "A privacy-maximal Android call recorder — no account, no server and no internet permission, so recordings physically cannot leave the phone.",
+        "tags": [
+          "Flutter",
+          "Dart",
+          "Kotlin",
+          "Android",
+          "just_audio"
+        ],
+        "overview": "The same capture engine as Lead Recorder with every network path removed. It records calls automatically, labels each recording from the call log and keeps everything in the app's private folder. The manifest declares no internet permission and Android backup is disabled — not 'we choose not to upload', but 'the OS won't let it'.",
+        "features": [
+          "Starts recording when a call connects and stops at hang-up, with Pause / Resume / Stop in the notification",
+          "Labels each file with number, contact, direction and duration in a sidecar JSON",
+          "Deletes recordings of unanswered outgoing calls and boosts quiet audio automatically",
+          "Recordings grouped by day with search, incoming/outgoing filter, playback and delete",
+          "One-screen setup for permissions, the accessibility switch and auto-record",
+          "Only five direct dependencies — no network, analytics or storage-permission packages anywhere"
+        ],
+        "highlights": [
+          {
+            "title": "No database by design",
+            "body": "Each recording is a media file plus a JSON file beside it, so delete is genuinely destructive and the data is self-describing if it's ever copied off the phone."
+          },
+          {
+            "title": "Accessibility service that reads nothing",
+            "body": "It exists only to unlock the microphone during calls and declares itself as not an assistive tool."
+          }
+        ]
+      },
+      {
+        "n": "13",
+        "cat": "AI · Legal Ops",
+        "title": "Docket Watchdog",
+        "slug": "docket-watchdog",
+        "status": "Prototype",
+        "context": "Personal project",
+        "code": "https://github.com/darshansatapara/watchdog",
+        "desc": "An IP-law operations platform that watches a firm's matter register, calculates deadline urgency, drafts reminders with Mistral and escalates — with a human in the loop at every external touchpoint.",
+        "tags": [
+          "Python",
+          "FastAPI",
+          "Streamlit",
+          "PostgreSQL",
+          "Prisma",
+          "APScheduler",
+          "Mistral AI"
+        ],
+        "overview": "Upload the firm's matter register as a CSV and Docket Watchdog keeps watching it: deterministic Python engines compute deadlines, priority and escalation, a scheduler re-runs them, and Mistral writes reminder drafts — but nothing goes out without a human approving it. A FastAPI backend serves a Streamlit dashboard over Neon PostgreSQL.",
+        "features": [
+          "CSV matter-register upload with validation; dashboards always reflect the latest upload",
+          "Deterministic deadline, priority and escalation engines — AI is used only for drafting",
+          "Critical-matter and escalation queues with acknowledgement",
+          "Mistral-generated reminder drafts rendered through Jinja2 email templates",
+          "Scheduled re-evaluation with APScheduler and a full audit log",
+          "Typed with Pydantic v2 and covered by pytest"
+        ]
+      },
+      {
+        "n": "14",
+        "cat": "AI · Document Automation",
+        "title": "AI-Powered OCR Pipeline",
+        "slug": "ai-ocr-pipeline",
+        "desc": "Converts unstructured PDFs and itineraries into database-ready JSON. Combines OpenAI, Mistral AI, AWS, Azure, MinerU and OCR, syncing to Directus — cutting manual entry 80%+.",
+        "tags": [
+          "Node.js",
+          "Python",
+          "OpenAI API",
+          "Mistral AI",
+          "OCR"
+        ],
+        "code": "https://github.com/darshansatapara/OCR",
         "overview": "A multi-format document-analysis engine that benchmarks cloud OCR services on real documents — PDFs, Excel, Word, PowerPoint, CSV and plain text — then scores extraction quality and maps exactly where each engine fails. Built as a production proof-of-concept at 7Span to choose the most accurate, lowest-cost OCR stack for automating manual data entry.",
         "features": [
           "Dual-engine comparison — Azure Document Intelligence vs MinerU Cloud on identical inputs",
@@ -94,10 +565,108 @@
           "Accuracy metrics — similarity %, character/word accuracy, CER and WER (Levenshtein)",
           "Character and word confusion maps that show precisely how each engine misreads",
           "Dual-format baseline output (TXT + Markdown) plus structured JSON reports per document"
-        ] },
-      { "n": "09", "cat": "Lead Generation · Maps", "title": "Scout", "desc": "A Google Maps B2B lead-generation tool streamlining automated business-data extraction, prospect discovery and client outreach.", "tags": ["Google Maps", "Data Extraction", "Automation"] },
-      { "n": "10", "cat": "Data · Architecture", "title": "Enterprise ETL & Denormalization", "desc": "Merged 30+ tables across 8-10 databases and 15M+ records into one source of truth. A Python ETL syncs daily inserts and improved retrieval ~60%.", "tags": ["SQL", "Python", "Database Architecture", "ETL"] },
-      { "n": "11", "cat": "LLM · GEO Content", "title": "Multi-Model Content Automation", "slug": "multi-model-content-automation", "desc": "A task-handoff pipeline orchestrating Storyteller, Architect and Editor LLM roles, enforcing GEO and human-touch formatting without manual prompting.", "tags": ["Python", "LLM APIs", "Prompt Engineering", "GEO"], "code": "https://github.com/darshansatapara/Multi-Model-Content-Automation",
+        ]
+      },
+      {
+        "n": "15",
+        "cat": "SaaS · eCommerce",
+        "title": "Instant Dukaan",
+        "desc": "A scalable SaaS empowering local shops to deploy custom storefronts. Responsive frontend plus robust APIs for fast onboarding and multi-tenant operations.",
+        "tags": [
+          "React.js",
+          "Node.js",
+          "Express.js",
+          "MySQL",
+          "SaaS"
+        ],
+        "slug": "instant-dukaan",
+        "context": "Built at InstaBizWeb",
+        "overview": "A multi-tenant SaaS that lets local retail shops launch their own online storefront quickly, without hiring a developer. I worked on the responsive storefront frontend and the APIs behind shop onboarding and day-to-day multi-tenant operations.",
+        "features": [
+          "Self-serve onboarding so a local shop can go from sign-up to live storefront fast",
+          "Custom storefront per shop on shared multi-tenant infrastructure",
+          "Responsive React storefront built mobile-first for shoppers on phones",
+          "Express + MySQL APIs for shops, catalogue and orders",
+          "Tenant-scoped data so every shop sees only its own catalogue and orders"
+        ]
+      },
+      {
+        "n": "16",
+        "cat": "Lead Generation · Maps",
+        "title": "Scout",
+        "desc": "A Google Maps B2B lead-generation tool streamlining automated business-data extraction, prospect discovery and client outreach.",
+        "tags": [
+          "Google Maps",
+          "Data Extraction",
+          "Automation"
+        ],
+        "slug": "scout",
+        "context": "Built at InstaBizWeb",
+        "overview": "A B2B lead-generation tool built on Google Maps data. Sales teams search by business type and location, Scout extracts structured business details at scale, and the results feed straight into prospecting and outreach — replacing hours of manual copy-paste research.",
+        "features": [
+          "Search businesses by category and location on Google Maps",
+          "Automated extraction of structured business data into exportable lead lists",
+          "Prospect discovery to build targeted outreach lists fast",
+          "Built to feed client outreach workflows directly"
+        ]
+      },
+      {
+        "n": "17",
+        "cat": "Data · Architecture",
+        "title": "Enterprise ETL & Denormalization",
+        "desc": "Merged 30+ tables across 8-10 databases and 15M+ records into one source of truth. A Python ETL syncs daily inserts and improved retrieval ~60%.",
+        "tags": [
+          "SQL",
+          "Python",
+          "Database Architecture",
+          "ETL"
+        ],
+        "slug": "enterprise-etl",
+        "context": "Built at Egniol Services",
+        "overview": "Business data was spread across 8–10 databases and 30+ tables holding 15M+ records, so every report needed slow, resource-heavy multi-join queries. I designed a single denormalized master table as one source of truth and a Python ETL that keeps it in sync with daily inserts — improving data retrieval by roughly 60%.",
+        "features": [
+          "Consolidated 30+ tables across 8–10 databases into one architecture",
+          "Centralized master-data table that removed expensive multi-join queries",
+          "Python ETL that syncs daily inserts into the master table",
+          "Around 60% faster data retrieval for reporting and operations",
+          "Handles 15M+ records"
+        ]
+      },
+      {
+        "n": "18",
+        "cat": "Full Stack · Payments",
+        "title": "Mahendra Ke Namkeen",
+        "desc": "A B2C eCommerce platform with optimized storefront and admin panel. Razorpay, secure auth, live orders and analytics for real revenue.",
+        "tags": [
+          "Next.js",
+          "Node.js",
+          "MongoDB",
+          "Razorpay API"
+        ],
+        "slug": "mahendra-ke-namkeen",
+        "context": "Built at Webseeder Technologies",
+        "overview": "A B2C eCommerce platform for Mahendra Ke Namkeen, an Indore snack brand dating back to 1957. I built an optimized storefront and an admin panel with Razorpay payments, secure authentication, live order tracking and sales analytics, handling real customer revenue.",
+        "features": [
+          "Product catalogue across the brand's namkeen ranges with cart and checkout",
+          "Razorpay payment integration for secure online payments",
+          "Secure customer authentication and order history",
+          "Admin panel for products, live orders and sales analytics",
+          "Optimized, responsive storefront for fast loads on mobile"
+        ]
+      },
+      {
+        "n": "19",
+        "cat": "LLM · GEO Content",
+        "title": "Multi-Model Content Automation",
+        "slug": "multi-model-content-automation",
+        "desc": "A task-handoff pipeline orchestrating Storyteller, Architect and Editor LLM roles, enforcing GEO and human-touch formatting without manual prompting.",
+        "tags": [
+          "Python",
+          "LLM APIs",
+          "Prompt Engineering",
+          "GEO"
+        ],
+        "code": "https://github.com/darshansatapara/Multi-Model-Content-Automation",
         "overview": "An LLM task-handoff pipeline that splits content creation across three specialised roles — Storyteller, Architect and Editor — so each model does one job well. The chain enforces GEO (generative-engine optimization) structure and a human-touch formatting pass automatically, removing the manual prompt-chaining between steps.",
         "features": [
           "Three-role LLM orchestration — Storyteller drafts, Architect structures, Editor refines",
@@ -105,18 +674,44 @@
           "Human-touch pass that strips the robotic tone from generated copy",
           "Zero manual prompt-chaining — each role hands off to the next programmatically",
           "Delivered as a reproducible Jupyter pipeline"
-        ] },
-      { "n": "12", "cat": "Python · Automation", "title": "Inshorts News Scraper", "slug": "inshorts-news-scraper", "desc": "Scrapes daily trending domain-specific news from Inshorts and organizes it via Google Sheets API every morning — saving 2+ research hours a day.", "tags": ["Python", "BeautifulSoup", "Selenium", "Sheets API"], "code": "https://github.com/darshansatapara/Inshort-News-Scrapper",
-        "overview": "A Python automation that scrapes trending, domain-specific news from Inshorts every morning and files it straight into Google Sheets — turning a daily 2+ hour manual research routine into a scheduled, hands-off job.",
+        ]
+      },
+      {
+        "n": "20",
+        "cat": "LLM · Fine-Tuning",
+        "title": "Generative AI Fine-Tuning",
+        "desc": "Fine-tuned Meta Llama 3.1 8B with Unsloth and QLoRA on dual T4 GPUs. Built an ingestion pipeline over 40,000+ MongoDB articles for content generation.",
+        "tags": [
+          "Python",
+          "Llama 3.1",
+          "Unsloth",
+          "QLoRA",
+          "PyTorch"
+        ],
+        "slug": "generative-ai-fine-tuning",
+        "code": "https://github.com/darshansatapara/Generative-AI-Fine-Tuning",
+        "overview": "Fine-tuned Meta's Llama 3.1 8B for domain content generation on a budget: Unsloth and QLoRA made it trainable on dual T4 GPUs, and a custom ingestion pipeline turned 40,000+ articles stored in MongoDB into a clean training set.",
         "features": [
-          "Scrapes category-specific trending news from Inshorts on a daily schedule",
-          "BeautifulSoup + Selenium handling for dynamically rendered content",
-          "Writes clean, structured rows to Google Sheets via the Sheets API",
-          "Runs every morning unattended — saves 2+ research hours a day",
-          "Single-file, low-dependency script that is easy to redeploy"
-        ] },
-      { "n": "13", "cat": "LLM · Fine-Tuning", "title": "Generative AI Fine-Tuning", "desc": "Fine-tuned Meta Llama 3.1 8B with Unsloth and QLoRA on dual T4 GPUs. Built an ingestion pipeline over 40,000+ MongoDB articles for content generation.", "tags": ["Python", "Llama 3.1", "Unsloth", "QLoRA", "PyTorch"] },
-      { "n": "14", "cat": "AI · Social Automation", "title": "X AI Automation Bot", "slug": "x-ai-automation-bot", "desc": "A Python pipeline using free-tier LLM APIs to generate context-aware content and autonomously publish scheduled posts to X.", "tags": ["Python", "X API", "Gemini", "Mistral AI", "OpenRouter"], "code": "https://github.com/darshansatapara/X-Post-Automation",
+          "Llama 3.1 8B fine-tuned with Unsloth and 4-bit QLoRA",
+          "Trained on dual NVIDIA T4 GPUs — no expensive hardware needed",
+          "Ingestion pipeline over 40,000+ MongoDB articles to build the training set",
+          "Delivered as reproducible Jupyter notebooks"
+        ]
+      },
+      {
+        "n": "21",
+        "cat": "AI · Social Automation",
+        "title": "X AI Automation Bot",
+        "slug": "x-ai-automation-bot",
+        "desc": "A Python pipeline using free-tier LLM APIs to generate context-aware content and autonomously publish scheduled posts to X.",
+        "tags": [
+          "Python",
+          "X API",
+          "Gemini",
+          "Mistral AI",
+          "OpenRouter"
+        ],
+        "code": "https://github.com/darshansatapara/X-Post-Automation",
         "overview": "An autonomous social bot that generates context-aware posts with free-tier LLMs and publishes them to X on a schedule — no paid API tier required. Several model backends (Google Gemini, Mistral AI, OpenRouter) are wired in so it keeps running even when one free quota runs dry.",
         "features": [
           "Context-aware post generation from a maintained topic/queue file",
@@ -124,9 +719,92 @@
           "Autonomous scheduled publishing to X via the X API",
           "Provider fallback so a single rate-limit never stops the pipeline",
           "Pure-Python, lightweight and self-hostable"
-        ] },
-      { "n": "15", "cat": "MERN · Team Workflows", "title": "Task Management System", "desc": "A co-developed MERN task-management system to isolate and streamline project workflows across multiple teams.", "tags": ["MongoDB", "Express.js", "React.js", "Node.js"] },
-      { "n": "16", "cat": "Next.js · Personal Brand", "title": "Developer Portfolio", "slug": "developer-portfolio", "desc": "A responsive personal portfolio presenting development, data-engineering and AI work through a structured, JSON-driven content system.", "tags": ["Next.js", "React.js", "Tailwind CSS", "JSON"], "code": "https://github.com/darshansatapara",
+        ]
+      },
+      {
+        "n": "22",
+        "cat": "Python · Automation",
+        "title": "Inshorts News Scraper",
+        "slug": "inshorts-news-scraper",
+        "desc": "Scrapes daily trending domain-specific news from Inshorts and organizes it via Google Sheets API every morning — saving 2+ research hours a day.",
+        "tags": [
+          "Python",
+          "BeautifulSoup",
+          "Selenium",
+          "Sheets API"
+        ],
+        "code": "https://github.com/darshansatapara/Inshort-News-Scrapper",
+        "overview": "A Python automation that scrapes trending, domain-specific news from Inshorts every morning and files it straight into Google Sheets — turning a daily 2+ hour manual research routine into a scheduled, hands-off job.",
+        "features": [
+          "Scrapes category-specific trending news from Inshorts on a daily schedule",
+          "BeautifulSoup + Selenium handling for dynamically rendered content",
+          "Writes clean, structured rows to Google Sheets via the Sheets API",
+          "Runs every morning unattended — saves 2+ research hours a day",
+          "Single-file, low-dependency script that is easy to redeploy"
+        ]
+      },
+      {
+        "n": "23",
+        "cat": "MERN · Team Workflows",
+        "title": "Task Management System",
+        "desc": "A co-developed MERN task-management system to isolate and streamline project workflows across multiple teams.",
+        "tags": [
+          "MongoDB",
+          "Express.js",
+          "React.js",
+          "Node.js"
+        ],
+        "slug": "task-management-system",
+        "context": "Built at Webseeder Technologies",
+        "overview": "A MERN task-management system co-developed to keep project work separated and on track across multiple teams — each team gets its own isolated workspace for tasks, assignments and progress.",
+        "features": [
+          "Team-isolated workspaces so projects don't bleed into each other",
+          "Task creation, assignment and status tracking",
+          "React frontend with an Express + MongoDB API",
+          "Designed for multiple teams working in parallel"
+        ]
+      },
+      {
+        "n": "24",
+        "cat": "Design · HTML Templates",
+        "title": "HTML Email Templates & Signatures",
+        "slug": "email-templates",
+        "status": "Delivered · live",
+        "context": "Law-firm design deliverable",
+        "desc": "A table-based trademark-opposition notice template and branded email signatures with multiple working links that survive Gmail — hand-built HTML served from Cloudinary.",
+        "tags": [
+          "HTML",
+          "Email",
+          "Python",
+          "Cloudinary"
+        ],
+        "overview": "Email HTML is not web HTML. These deliverables — a trademark opposition notice rebuilt from an Illustrator export, and a set of personal email signatures — were built around what actually survives Gmail and Outlook. Each one is fully self-contained with relative paths only, so any single folder can ship on its own.",
+        "features": [
+          "Opposition notice rebuilt as a table-based email with real, selectable HTML text instead of an embedded SVG",
+          "Banner signatures with up to 11 working links and no image map",
+          "Shared Python build that slices a banner into real <a> link regions measured from each person's artwork",
+          "Assets served from a single Cloudinary upload per signature"
+        ],
+        "highlights": [
+          {
+            "title": "No image maps",
+            "body": "Gmail strips image maps, so each link region is cut out of the banner and wrapped in its own anchor — more markup, but it actually works."
+          }
+        ]
+      },
+      {
+        "n": "25",
+        "cat": "Next.js · Personal Brand",
+        "title": "Developer Portfolio",
+        "slug": "developer-portfolio",
+        "desc": "A responsive personal portfolio presenting development, data-engineering and AI work through a structured, JSON-driven content system.",
+        "tags": [
+          "Next.js",
+          "React.js",
+          "Tailwind CSS",
+          "JSON"
+        ],
+        "code": "https://github.com/darshansatapara",
         "overview": "This site. A fully JSON-driven personal portfolio built on the latest Next.js, presenting full-stack, data-engineering and AI work through one structured content system — edit the data and the whole site updates. Hand-built neo-brutalist design with a pure-CSS dark mode and generated social images.",
         "features": [
           "Next.js 16 (App Router, Turbopack) + React 19 + TypeScript strict",
@@ -135,7 +813,8 @@
           "Pure-CSS dark mode via data-theme tokens, with no flash on load",
           "Auto-generated Open Graph / Twitter social images using next/og",
           "Per-page SEO metadata, sitemap, robots and JSON-LD Person schema"
-        ] }
+        ]
+      }
     ]
   }
 }
